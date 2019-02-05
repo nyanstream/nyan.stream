@@ -1,0 +1,74 @@
+@import 'inc/vars';
+@import 'inc/mixins';
+@import 'inc/extend';
+
+:root {
+	--tab-hover-color:   #{darken($primeColor, 8%)};
+	--tab-focus-color:   #{darken($primeColor, 6%)};
+	--tab-active-color:  #{darken($primeColor, 13%)};
+	--tab-border-color:  #{darken($primeColor, 3%)};
+}
+
+body {
+	@import 'inc/parts/main/themes';
+}
+
+.container {
+	&--main {
+		display: grid;
+		grid-template-rows: 40px 1fr;
+		grid-template-columns: 1fr;
+		overflow-y: hidden;
+
+		@extend %full-width-tmpl;
+
+		button[data-action='sidebarTrigger'] > i.fa::before {
+			content: '\f00d';
+		}
+
+		&[data-sidebar-hidden] {
+			button[data-action='sidebarTrigger'] > i.fa::before {
+				content: '\f053';
+			}
+
+			.main {
+				grid-template-columns: 1fr;
+			}
+
+			.sidebar { display: none }
+		}
+
+		&[data-error] {
+			.main { display: none }
+		}
+
+		&[data-embed='vk'] {
+			grid-template-rows: 1fr;
+
+			.header { display: none }
+
+			.main {
+				--sidebar-width: 350px;
+			}
+		}
+
+		.main {
+			--sidebar-width: 400px;
+
+			display: grid;
+			grid-template-columns: 1fr var(--sidebar-width);
+			grid-template-rows: 100%;
+			overflow-y: hidden;
+		}
+	}
+}
+
+@import 'inc/parts/main/player';
+
+@import 'inc/parts/main/sidebar';
+
+@import 'inc/parts/main/dialog__options';
+
+@import 'inc/parts/error-box';
+
+@import 'inc/parts/main/mediaq';

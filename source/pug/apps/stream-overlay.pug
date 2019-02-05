@@ -1,0 +1,29 @@
+doctype html
+html(lang='ru')
+	head
+		include ../inc/vars.pug
+
+		meta(charset='utf-8')
+		title #{title} / App / Stream overlay
+
+		link(rel='shortcut icon' href=`${URLs.favicon}`)
+
+		meta(name='robots' content='noindex, nofollow')
+
+		link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&amp;subset=cyrillic,cyrillic-ext,latin-ext')
+
+		link(rel='stylesheet' href=`${PATHS.css}/apps/stream-overlay.min.css?v=${VERSION}`)
+
+	body
+		div.overlay
+			div.overlay__data(data-postiton='top left')
+				div.time
+					div #[datetime]
+
+				div.title #[div]
+
+		each JS in [{ file: `moment.js/${LIBS.js.moment.v.same}/moment.min.js`, sri: LIBS.js.moment.sri.same }, { file: `moment.js/${LIBS.js.moment.v.same}/locale/ru.js`, sri: LIBS.js.moment.sri.locale }, { file: `moment-timezone/${LIBS.js.moment.v.timezone}/moment-timezone-with-data.min.js`, sri: LIBS.js.moment.sri.timezone }]
+			script(src=`https://cdnjs.cloudflare.com/ajax/libs/${JS.file}` integrity=`${JS.sri}` crossorigin='anonymous' defer)
+
+		each JS in ['vendors/kamina', 'langs', 'core', 'apps/stream-overlay']
+			script(src=`${PATHS.js}/${JS}.min.js?v=${VERSION}` defer)

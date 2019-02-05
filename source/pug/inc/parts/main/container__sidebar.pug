@@ -1,0 +1,22 @@
+//- задать секцию по-умолчанию можно с помощью атрибута data-tab-default
+aside.sidebar
+	ul.tabs-radio
+		li
+			button(role='radio' data-lang='chat' data-action='selectTab' data-tab='chat')
+
+		li
+			button(role='radio' data-lang='tab_sched' data-action='selectTab' data-tab='sched')
+
+		li
+			button(role='radio' data-lang='tab_news' data-action='selectTab' data-tab='news')
+
+	div.tabs-content
+		section(data-tab='chat')
+			iframe(src=`${URLs.chat}` data-lang-label='chat' sandbox='allow-same-origin allow-scripts allow-forms allow-popups')
+
+		section(data-tab='sched')
+			div.schedule
+
+		section(data-tab='news')
+			div.vk-news
+				div.vk-posts

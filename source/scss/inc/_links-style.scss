@@ -1,0 +1,18 @@
+a {
+	padding: 0 .5px;
+
+	&:not([data-style*='no-border']) {
+		border-bottom: 1px solid $textColor;
+	}
+
+	color: $textColor;
+	text-decoration: none;
+
+	@include transition(.3s);
+
+	&:not([data-style*='no-default-hover']) {
+		&:hover {
+			background-color: rgba($textColor, .1);
+		}
+	}
+}

@@ -1,0 +1,28 @@
+mixin headerBrandMainContent
+	div.brand__logo
+		img(src=`${URLs.logo}` alt='logo' data-lang-image='logo')
+
+	//- NOTE: "--title" используется для медиазапроса
+	h1.brand__text.brand__text--title #{title}
+
+mixin headerBrand
+	div.brand
+		if subPage
+			a.brand--main(href='/' rel='home' data-style='no-border no-default-hover' data-lang-title='go_main_page')
+				+headerBrandMainContent
+
+			div.brand--sub
+				span.brand__text(data-style='no-hover') &nbsp;/&nbsp;
+				span.brand__text #{subPage.title}
+
+		else
+			div.brand--main #[+headerBrandMainContent]
+
+mixin mailto(post, subj)
+	a(href=`mailto:${post}${subj ? '?subject=' + subj : ''}`) #{post}
+
+mixin externalLink(link, text = '')
+	a(href=`${link}` target='_blank' rel='nofollow noopener')&attributes(attributes) #{text}
+
+mixin includeFonts(withHeaderFont)
+	link(rel='stylesheet' href=`https://fonts.googleapis.com/css?family=Roboto:400,500${withHeaderFont ? '|Montserrat:700,800' : ''}&amp;subset=cyrillic`)

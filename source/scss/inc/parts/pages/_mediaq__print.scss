@@ -1,0 +1,55 @@
+@media print {
+	html, body, .container {
+		width: auto !important;
+		height: auto !important;
+		overflow: auto !important;
+	}
+
+	.noprint {
+		display: none;
+	}
+
+	.container {
+		.header {
+			background-color: #fff;
+
+			.menu {
+				display: none;
+			}
+
+			.brand {
+				&__logo {
+					display: none;
+				}
+
+				&__text {
+					color: #000;
+				}
+			}
+		}
+
+		&--page {
+			.page {
+				h2 {
+					.anchor {
+						display: none;
+					}
+				}
+
+				p {
+					a {
+						border: 0;
+
+						&:not([href^='mailto'])::after {
+							content: ' [' attr(href) ']';
+						}
+					}
+				}
+			}
+		}
+
+		&--slider {
+			display: none;
+		}
+	}
+}

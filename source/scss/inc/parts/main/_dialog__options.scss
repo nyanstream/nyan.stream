@@ -1,0 +1,60 @@
+.dialog {
+	&--options {
+		max-width: 380px;
+
+		--herePadding: 2.5px 5px;
+
+		margin: 0 auto;
+		font-size: var(--font-size);
+
+		padding: 10px;
+
+		h3, menu {
+			text-align: center;
+		}
+
+		table, menu {
+			margin-top: 10px;
+		}
+
+		table {
+			td {
+				padding: var(--herePadding);
+				vertical-align: middle;
+
+				&:nth-child(2) {
+					min-width: 170px;
+				}
+			}
+		}
+
+		select, textarea {
+			width: 100%;
+		}
+
+		select {
+			padding: var(--herePadding);
+		}
+
+		textarea {
+			resize: none;
+			padding: 5px;
+		}
+
+		menu {
+			& > button {
+				padding: var(--herePadding);
+
+				&:not(:first-child) {
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+
+	&::backdrop {
+		background-color: rgba(#000, .4);
+	}
+
+	@include transition(.3s);
+}

@@ -1,0 +1,59 @@
+@import '../inc/vars';
+@import '../inc/mixins';
+@import '../inc/extend';
+
+.player, .sidebar {
+	background-color: var(--prime-color-5d);
+}
+
+.container {
+	&[data-sidebar-hidden] {
+		.player {
+			padding: 10px;
+			padding-top: 5px;
+
+			.embed {
+				border-radius: 20px;
+			}
+		}
+	}
+}
+
+.player {
+	padding: 5px 5px 10px 10px;
+
+	.embed {
+		border-radius: 20px 0 0 20px;
+		overflow: hidden;
+
+		border: 1px solid var(--tab-active-color);
+	}
+
+	.noti {
+		--noti-offset: 20px;
+
+		border-radius: 20px 0 5px 0;
+		top: calc(var(--noti-offset) - 5px);
+	}
+}
+
+.sidebar {
+	padding: 5px 10px 10px 5px;
+
+	.tabs {
+		&-radio {
+			border-radius: 0 20px 0 0;
+			border: 1px solid var(--tab-active-color);
+			overflow: hidden;
+		}
+
+		&-content {
+			height: calc(100% - var(--tabCellHeight) - 10px);
+
+			border-radius: 0 0 20px 0;
+			margin-top: 10px;
+
+			background-color: #fff;
+		}
+	}
+}

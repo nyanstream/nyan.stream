@@ -1,0 +1,16 @@
+.print {
+	display: none;
+	speak: none;
+	padding: 5px;
+	font-size: calc(var(--font-size) + 2px);
+}
+
+@media print {
+	body > *:not(.print) {
+		display: none;
+	}
+
+	.print {
+		display: block;
+	}
+}

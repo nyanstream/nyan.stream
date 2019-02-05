@@ -1,0 +1,32 @@
+js:
+  # cdnjs.com/libraries/moment.js (moment.min.js & ru.js)
+  # cdnjs.com/libraries/moment-timezone (moment-timezone-with-data.min.js)
+  moment:
+    v:
+      same: 2.23.0
+      timezone: 0.5.23
+    sri:
+      same: sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=
+      locale: sha256-qR4pdhxtx7dwKGJuYGoYjfnCQBPXv47hzLLU8jPLVUY=
+      timezone: sha256-15jnh2lee6Li94j6XCbw8PRzNZe29O/W9i97yXVyRmA=
+
+  # cdnjs.com/libraries/ismobilejs (isMobile.min.js)
+  isMobile:
+    v: 0.4.1
+    sri: sha256-aLR8fvqAYzAEIfWc+ip7mzCFBJXgGgYu6AXeAcgta5Q=
+
+  # cdnjs.com/libraries/url-search-params (url-search-params.js)
+  urlSP_polyfill:
+    v: 1.1.0
+    sri: sha256-vA5o1HRlFYggrn0yG+6bKGlnln9fWxi4S9cvzo6FlKw=
+
+  # cdnjs.com/libraries/fetch (fetch.min.js)
+  fetch:
+    v: 2.0.4 # 3.0.0 глючная
+    sri: sha256-eOUokb/RjDw7kS+vDwbatNrLN8BIvvEhlLM5yogcDIo=
+
+css:
+  # cdnjs.com/libraries/fork-awesome (fork-awesome.min.css)
+  fa:
+    v: 1.0.4 # обновлять только если понадобятся новые иконки
+    sri: sha256-tjfjH2pLkP1K9tzW8y7R1b/Ji7SNq8hgZoldn74zw1o=

@@ -1,0 +1,153 @@
+@import '../inc/vars';
+@import '../inc/mixins';
+
+@include reset;
+
+html, body, video, .cover {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	overflow: hidden;
+	background-color: #000;
+
+	position: relative;
+
+	&:not([data-state='work']) {
+		video {
+			background-image: url('#{$imgPath}/offline.png?v=#{$VERSION}');
+		}
+	}
+}
+
+video {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	z-index: 0;
+}
+
+.cover {
+	position: fixed;
+	top: 0;
+
+	z-index: 1;
+}
+
+.controls {
+	position: fixed;
+	bottom: 0;
+
+	width: 100%; height: 150px;
+	background-color: rgba(#000, .2);
+
+	@include transition(.2s);
+
+	&:not(:hover) {
+		opacity: 0;
+	}
+
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: auto auto auto;
+
+	li {
+		@include flexbox('auto', center, center, auto);
+		list-style: none;
+
+		font-size: 40px;
+
+		&.state > button {
+			&[data-state='play'] {
+				i.fa::before {
+					content: '\f04c';
+				}
+			}
+
+			&[data-state='pause'] {
+				i.fa::before {
+					content: '\f04b';
+				}
+			}
+		}
+
+		&.volume > button {
+			width: 45px;
+			text-align: left;
+
+			i.fa:before {
+				content: '\f026';
+			}
+
+			&[data-level='low'] {
+				i.fa::before {
+					content: '\f027';
+				}
+			}
+
+			&[data-level='high'] {
+				i.fa::before {
+					content: '\f028';
+				}
+			}
+		}
+
+		&.fs > button {
+			i.fa::before {
+				content: '\f065';
+			}
+
+			&[data-fs='true'] {
+				i.fa::before {
+					content: '\f066';
+				}
+			}
+		}
+	}
+
+	&[data-mobile] {
+		li {
+			&.volume {
+				input {
+					display: none;
+				}
+			}
+		}
+	}
+
+	button {
+		background-color: transparent;
+		border: 0;
+		font-size: inherit;
+		color: #fff;
+		outline: 0;
+		cursor: pointer;
+
+		i.fas {
+			pointer-events: none;
+		}
+
+		&:hover {
+			opacity: .8;
+
+			@include transition(.3s);
+		}
+	}
+
+	input[type='range'] {
+		width: 150px;
+		cursor: pointer;
+	}
+
+	&[data-no-playpause] {
+		grid-template-columns: auto auto;
+
+		li {
+			&.state {
+				display: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,60 @@
+.noti {
+	--noti-offset: 10px;
+
+	display: grid;
+	position: absolute;
+
+	grid-template-rows: 1fr;
+	grid-template-columns: 30px 1fr;
+	grid-auto-flow: dense;
+
+	max-width: 350px;
+
+	background-color: rgba(#dfe2e9, .9);
+
+	top: var(--noti-offset);
+	left: var(--noti-offset);
+	right: var(--noti-offset);
+
+	z-index: 2;
+
+	cursor: default;
+
+	font-size: calc(var(--font-size) + 2px);
+
+	user-select: none;
+	@include transition(.5s);
+
+	&:not([data-noti-is-enabled]) {
+		display: none;
+	}
+
+	&__hide-btn {
+		grid-column: 1;
+
+		display: block;
+		background-color: rgba(#000, .1);
+		border: 0;
+
+		cursor: pointer;
+
+		@include transition(.3s);
+
+		&:hover {
+			background-color: rgba(#000, .2);
+		}
+
+		i.fa {
+			font-size: calc(var(--font-size) + 4px);
+		}
+
+	}
+
+	&__content {
+		grid-column: 2;
+
+		padding: 10px;
+
+		line-height: 1.3em;
+	}
+}

@@ -1,0 +1,38 @@
+doctype html
+html(lang='ru')
+	head
+		include ../inc/vars.pug
+		include ../inc/mixins.pug
+
+		meta(charset='utf-8')
+		title #{title} / Player / Grind player
+		link(rel='shortcut icon' href=`${URLs.favicon}`)
+
+		include ../inc/meta-viewport.pug
+		meta(name='robots' content='noindex, nofollow')
+
+		meta(name='_nyan:rtmp' content=`${PLAYERS.rtmp.replace('rtmp://', '')}`)
+
+		each URL in ['stream1.cybergame.tv', 'fonts.gstatic.com']
+			link(rel='dns-prefetch' href=`//${URL}`)
+
+		include ../inc/meta-font.pug
+
+		each CSS in ['all-warning', 'player-flash']
+			link(rel='stylesheet' href=`${PATHS.css}/players/${CSS}.min.css?v=${VERSION}`)
+
+	body
+		div.player
+		div.warning
+			include ../inc/noflash-text.pug
+
+		script(src=`https://cdnjs.cloudflare.com/ajax/libs/url-search-params/${LIBS.js.urlSP_polyfill.v}/url-search-params.js` integrity=`${LIBS.js.urlSP_polyfill.sri}` crossorigin='anonymous' defer)
+
+		each JS in ['vendors/kamina', 'special/info-from-meta', 'special/ms-edge-suck', 'special/flash', 'anime-players/player-flash']
+			script(src=`${PATHS.js}/${JS}.min.js?v=${VERSION}` defer)
+
+		script.
+			document.addEventListener('DOMContentLoaded', () => {
+				let stream = $check.get('rtmp') ? $check.get('rtmp') : getInfoFromMeta('rtmp')
+				playerInit({ player: 'grind', file: '#{PATHS.other}/grindplayer', vars: `autoPlay=true&src=rtmp://${stream}&streamType=live&tintColor=#4d539c`, wmode: 'direct' })
+			})

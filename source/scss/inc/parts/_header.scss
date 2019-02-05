@@ -1,0 +1,130 @@
+.header {
+	--headerHeight: 40px;
+	--headerBrandHeight: 20px;
+
+	@include flexbox(auto, center, center, auto);
+	position: relative;
+	width: 100%;
+	height: var(--headerHeight);
+	background-color: var(--prime-color-5d);
+	overflow: hidden;
+
+	@include transition(.5s);
+
+	a { text-decoration: none }
+
+	.brand {
+		user-select: none;
+		white-space: nowrap;
+		cursor: default;
+
+		& > * {
+			display: contents;
+
+			& > * {
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+
+		&__logo {
+			--headerLogoHeight: calc(var(--headerBrandHeight) + 15px);
+
+			width: var(--headerLogoHeight);
+			height: var(--headerLogoHeight);
+			margin-left: 5px;
+			margin-right: 5px;
+
+			&:first-child { margin-left: 0 }
+			&:last-child { margin-right: 0 }
+
+			img {
+				width: 100%; height: 100%;
+				object-fit: contain;
+
+				image-rendering: pixelated;
+
+				// NOTE: подменять ссылку на лого можно с помощью свойства "content"
+			}
+		}
+
+		&__text {
+			@include transition(.5s);
+
+			text-transform: uppercase;
+			font-family: Montserrat, Tahoma, Geneva, Roboto, Arial, sans-serif;
+			font-weight: 700;
+			letter-spacing: 1px;
+			line-height: 1;
+			font-size: var(--headerBrandHeight);
+			color: #fff;
+
+			&:not([data-style*='no-hover']) {
+				&:hover {
+					text-shadow: 1px 1px 2px #ccc;
+				}
+			}
+		}
+	}
+
+	.menu {
+		position: absolute;
+		top: 0;
+		height: var(--headerHeight);
+
+		&--right {
+			right: 0;
+			padding-right: 5px;
+		}
+
+		&--left {
+			left: 0;
+			padding-left: 5px;
+		}
+	}
+}
+
+.menu {
+	@include flexbox(auto, auto, center, auto);
+	font-size: 18px;
+
+	&--right {
+		right: 0;
+		padding-right: 5px;
+	}
+
+	&--left {
+		left: 0;
+		padding-left: 5px;
+	}
+
+	user-select: none;
+	cursor: default;
+
+	&__elem {
+		@include flexbox(auto, center, center, auto);
+
+		border-radius: 5px;
+
+		width: 2em; height: 100%;
+		padding: 0 10px;
+
+		font-size: 1em;
+
+		@extend %menu-nav-elem;
+	}
+
+	li {
+		display: inline;
+		list-style: none;
+		height: 30px;
+
+		&:not(:first-child) {
+			margin-left: 5px;
+		}
+
+		&.li {
+			&--offset { margin-right: 5px }
+		}
+	}
+}

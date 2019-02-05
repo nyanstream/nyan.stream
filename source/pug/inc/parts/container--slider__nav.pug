@@ -1,0 +1,24 @@
+nav.nav
+	h3 #[span(data-lang='links') Ссылки]:
+
+	ul
+		if (subPage && subPage.title != '')
+			li.li--offset
+				a.nav__elem(href='/' rel='home' data-lang='go_main_page')
+
+		li.li--offset
+			+externalLink(URLs.links.donate).nav__elem(data-lang='donate')
+		li
+			+externalLink(URLs.links.donate_report, 'Посмотреть отчёты').nav__elem(data-lang='donate_report')
+
+		li.li--offset
+			+externalLink(URLs.links.request, 'Посмотреть отчёты').nav__elem(data-lang='request')
+		li
+			+externalLink(URLs.links.request_view, 'Посмотреть реквесты').nav__elem(data-lang='requests_view')
+
+		li.li--offset
+			+externalLink(URLs.links_stat.shiki).nav__elem(data-lang='link_shiki')
+		li
+			+externalLink(URLs.links_stat.trakt).nav__elem(data-lang='link_trakt')
+		li
+			+externalLink(URLs.links_stat.rawg).nav__elem(data-lang='link_rawg')

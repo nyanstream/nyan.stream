@@ -1,0 +1,33 @@
+&[data-tab='sched'] {
+	table {
+		width: 100%;
+
+		tr {
+			&.air {
+				&--finished {
+					opacity: .4;
+				}
+				&--current {
+					background-color: #feff44;
+				}
+				&--next {
+					background-color: #e7e7e7;
+				}
+				&--notToday {
+					opacity: .6;
+				}
+			}
+
+			td {
+				padding: 5px;
+
+				b { font-weight: 500 }
+
+				&:nth-child(1) {
+					text-align: center;
+					width: 100px;
+				}
+			}
+		}
+	}
+}

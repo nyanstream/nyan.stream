@@ -1,0 +1,41 @@
+dialog.dialog.dialog--options
+	form(method='dialog')
+		h3(data-lang='settings')
+
+		table
+			tr
+				td #[label(for='player_selector' data-lang='player_selector')]
+				td
+					select(id='player_selector')
+						optgroup(label='Stable')
+							option(value='twitch') Twitch
+							option(value='gg') GoodGame
+
+						optgroup(label='Beta')
+							option(value='mixer' hidden) Mixer
+							option(value='grind' hidden) Grind [Flash]
+
+						optgroup(label='Alpha')
+							option(value='eientei' hidden) Eientei
+
+			tr
+				td #[label(for='l10n_selector' data-lang='l10n_selector')]
+				td
+					select(id='l10n_selector')
+						optgroup(label='Stable')
+							option(value='ru' data-lang='l10n_ru')
+
+						optgroup(label='Beta')
+							option(value='en' data-lang='l10n_en')
+
+						optgroup(label='Alpha')
+							option(value='ja' data-lang='l10n_ja')
+
+			tr
+				td #[label(for='custom_css' data-lang='custom_css')]
+				td
+					textarea(id="custom_css" style='height: 70px; font-size: .7em;' placeholder='* { display: none }')
+
+		menu
+			button(data-action='options-close' type='reset' data-lang='close')
+			button(data-action='options-submit' type='submit' data-lang='save')

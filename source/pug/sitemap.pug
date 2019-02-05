@@ -1,0 +1,7 @@
+include inc/vars.pug
+
+urlset(xmlns:xsi='https://www.w3.org/2001/XMLSchema-instance' xmlns:image='https://www.google.com/schemas/sitemap-image/1.1' xsi:schemaLocation='https://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='https://www.sitemaps.org/schemas/sitemap/0.9')
+    each page in ['', '/about']
+        url
+            loc #{URLs.self}#{page}
+            lastmod #{new Date().toISOString()}

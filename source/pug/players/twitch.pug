@@ -1,0 +1,19 @@
+doctype html
+html(lang='ru')
+	head
+		include ../inc/vars.pug
+
+		meta(charset='utf-8')
+		title #{title} / Player / Twitch player
+		link(rel='shortcut icon' href=`${URLs.favicon}`)
+
+		include ../inc/meta-viewport.pug
+		meta(name='robots' content='noindex, nofollow')
+
+		each URL in ['www.twitch.tv', 'api.twitch.tv', 'cvp.twitch.tv', 'client-event-reporter.twitch.tv', 'pubsub-edge.twitch.tv', 'pubster.twitch.tv', 'static-cdn.jtvnw.net', 'www.gstatic.com', 'imasdk.googleapis.com', 'api.mixpanel.com', 'sb.scorecardresearch.com']
+			link(rel='dns-prefetch' href=`//${URL}`)
+
+		link(rel='stylesheet' href=`${PATHS.css}/players/player-iframe.min.css?v=${VERSION}`)
+
+	body
+		iframe.player(src=`https://player.twitch.tv/?channel=${PLAYERS.twitch}&autoplay=true` sandbox='allow-same-origin allow-scripts allow-presentation' allowfullscreen)

@@ -1,0 +1,28 @@
+section {
+	width: 100%;
+	max-width: 1100px;
+
+	background-color: rgba(#fff, .9);
+
+	margin: 0 auto;
+	padding: 1em 2em;
+
+	line-height: 1.65em;
+
+	&:not(:first-child):not([data-page-op='only-mode-selected']) {
+		margin-top: 15px;
+	}
+
+	&.hidden, &.error-box:empty {
+		display: none;
+	}
+
+	&.error-box {
+		noscript {
+			display: contents;
+		}
+		.separator {
+			padding: 0;
+		}
+	}
+}

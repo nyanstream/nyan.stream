@@ -1,0 +1,30 @@
+meta(charset='utf-8')
+title #{title.toUpperCase()}#{subPage ? ' / ' + subPage.title : ''}
+
+meta(name='description' content=`${description}`)
+meta(name='keywords' content='nyan stream, nyanstream, нян стрим, нянстрим, anime, аниме, онлайн телевидение, online tv, аниме смотреть онлайн, мокрые котики, смотреть аниме с субтитрами')
+
+each og in [{ what: 'locale', content: 'ru_RU' }, { what: 'type', content: 'website' }, { what: 'title', content: `${title.toUpperCase()}${subPage ? ' / ' + subPage.title : ''}` }, { what: 'description', content: `${description}` }, { what: 'url', content: `${URLs.self}` }, { what: 'site_name', content: `${title}` }, { what: 'image', content: `${URLs.self}${PATHS.img}/share.png?v=${VERSION}` }]
+	meta(property=`og:${og.what}` content=`${og.content}`)
+
+meta(name='theme-color' content=`${primeColor}`)
+
+each og in [{ what: 'card', content: 'summary_large_image' }, { what: 'title', content: `${title.toUpperCase()}${subPage ? ' / ' + subPage.title : ''}` }, { what: 'description', content: `${description}` }, { what: 'image', content: `${URLs.self}${PATHS.img}/share.png?v=${VERSION}` }]
+	meta(name=`twitter:${og.what}` content=`${og.content}`)
+
+meta(name='telegram:channel' content=`${URLs.links_soc.tg.replace('https://t.me/', '')}`)
+
+meta(name='yandex-tableau-widget' content=`logo=${URLs.self}${PATHS.img}/other/logo-tableau.png?v=${VERSION}, color=${primeColor}`)
+
+each nyanMeta in [{ name: 'version', content: `${VERSION}` }]
+	meta(name=`_nyan:${nyanMeta.name}` content=`${nyanMeta.content}`)
+
+script(type='application/ld+json') { "@context": "https://schema.org", "@type": "WebSite", "url": "#{URLs.self}", "name": "#{title.toUpperCase()}", "description": "#{description}" }
+
+link(rel='shortcut icon' href=`${URLs.favicon}`)
+link(rel='manifest' href=`${URLs.manifest}`)
+link(rel='sitemap' href=`${URLs.sitemap}`)
+
+include meta-viewport.pug
+
+include meta-font.pug

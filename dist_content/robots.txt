@@ -1,0 +1,10 @@
+User-agent: *
+
+Disallow: /apps/
+Disallow: /players/
+Disallow: /app--*
+Disallow: /rdr--*
+
+Host: nyan.stream
+
+Sitemap: https://nyan.stream/sitemap.xml

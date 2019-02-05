@@ -1,0 +1,12 @@
+&[data-theme='gray'] {
+	$primeColor: #464646;
+
+	--prime-color:      #{$primeColor};
+	--prime-color-5d:   #{darken($primeColor, 5%)};
+	--prime-color-10d:  #{darken($primeColor, 10%)};
+
+	--tab-hover-color:   #{darken($primeColor, 8%)};
+	--tab-focus-color:   #{darken($primeColor, 6%)};
+	--tab-active-color:  #{darken($primeColor, 13%)};
+	--tab-border-color:  #{darken($primeColor, 3%)};
+}

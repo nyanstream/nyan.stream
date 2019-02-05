@@ -1,0 +1,13 @@
+@media screen and (max-width: 449px) {
+	.container {
+		.header {
+			.brand {
+				&__text {
+					&--title {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

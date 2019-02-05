@@ -1,0 +1,14 @@
+.error-box {
+	@include flexbox(auto, center, center, auto);
+
+	height: 100%;
+	padding: 10px 5px;
+
+	font-size: var(--font-size);
+
+	&:empty { display: none }
+
+	& > * {
+		max-width: 650px;
+	}
+}

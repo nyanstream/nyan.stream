@@ -1,0 +1,40 @@
+@import '../inc/vars';
+@import '../inc/mixins';
+
+.warning {
+	display: none;
+	overflow-y: auto;
+	background-color: #fff;
+
+	font-family: Roboto, Arial, sans-serif;
+	text-align: center;
+
+	div {
+		max-width: 940px;
+		padding: 5px;
+
+		/*
+		 * @HACK решение проблемы с обрезанием верха блока у флексбокса
+		 * взято отсюда https://stackoverflow.com/a/33485935
+		 */
+		margin: auto;
+	}
+
+	p {
+		font-size: 1.1em;
+		line-height: 1.5;
+
+		&.mini {
+			font-size: .6em;
+			color: #c1c1c1;
+		}
+	}
+
+	kbd {
+		display: inline-block;
+		background-color: #797979;
+		color: #fff;
+		padding: 2.5px 5px;
+		border-radius: 5px;
+	}
+}

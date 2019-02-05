@@ -1,0 +1,70 @@
+@mixin reset {
+	* {
+		box-sizing: border-box;
+		padding: 0; margin: 0;
+	}
+}
+
+@mixin transition($sec) {
+	transition: all $sec ease-in-out;
+}
+
+@mixin flexbox($direction, $justify, $align-items, $align-content) {
+	display: flex;
+	@if $direction != auto { flex-direction: $direction }
+	@if $justify != auto { justify-content: $justify }
+	@if $align-items != auto { align-items: $align-items }
+	@if $align-content != auto { align-content: $align-content }
+}
+
+@mixin selection($bckgColor, $textColor) {
+	::-webkit-selection {
+		background-color: $bckgColor;
+		@if $textColor { color: $textColor }
+	}
+
+	::-moz-selection {
+		background-color: $bckgColor;
+		@if $textColor { color: $textColor }
+	}
+
+	::selection {
+		background-color: $bckgColor;
+		@if $textColor { color: $textColor }
+	}
+}
+
+@mixin filter($settings...) {
+	-webkit-filter: $settings;
+	   -moz-filter: $settings;
+	        filter: $settings;
+}
+
+@mixin disable-appearance {
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+}
+
+@mixin opacity {
+	opacity: .9;
+}
+
+@mixin inline-middle {
+	vertical-align: middle;
+	display: inline-block;
+}
+
+/*
+ * https://stackoverflow.com/q/21350537
+ */
+
+@function checkBool($value: false) {
+	@if
+		$value == false or
+		$value == "" or
+		$value == "false" or
+		$value == 'false' or
+		$value == 0 { @return false; }
+	@return true;
+}

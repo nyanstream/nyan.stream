@@ -1,0 +1,10 @@
+@import '../inc/vars';
+
+$primeColor: #bb1010;
+
+@import '../inc/mixins';
+@import '../inc/extend';
+
+:root {
+	@extend %special-colors;
+}

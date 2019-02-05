@@ -1,0 +1,92 @@
+.sidebar {
+	--tabCellHeight: 25px;
+
+	background-color: #fff;
+
+	.tabs {
+		&-radio {
+			height: var(--tabCellHeight);
+			font-size: 0;
+			user-select: none;
+
+			li {
+				display: inline-block;
+				background-color: var(--prime-color-5d);
+				width: calc(100% / 3);
+				height: 100%;
+				list-style: none;
+
+				border-left: .5px solid var(--tab-border-color);
+				border-right: .5px solid var(--tab-border-color);
+
+				@include transition(.5s);
+
+				&:first-child {
+					border-left: 0;
+				}
+
+				&:last-child {
+					border-right: 0;
+				}
+
+				button[data-action='selectTab'] {
+					@include flexbox(auto, center, auto, auto);
+					background-color: transparent;
+					width: 100%; height: 100%;
+					cursor: pointer;
+					font-size: calc(var(--font-size) + 2px);
+					color: #fff;
+					border: 0;
+					outline: 0;
+
+					@include transition(.5s);
+
+					&:focus {
+						background-color: var(--tab-focus-color);
+					}
+
+					&:not([data-tab-active]):hover {
+						background-color: var(--tab-hover-color);
+					}
+
+					&[data-tab-active] {
+						background-color: var(--tab-active-color);
+					}
+				}
+			}
+		}
+
+		&-content {
+			width: 100%;
+			height: calc(100% - var(--tabCellHeight));
+
+			border-left: 1px solid rgba(0, 0, 0, .1);
+			overflow: hidden;
+		}
+	}
+
+	section {
+		width: 100%; height: 100%;
+		overflow: hidden;
+
+		&:not([data-tab-active]) {
+			display: none;
+		}
+
+		&[data-tab='chat'] {
+			iframe {
+				width: 100%; height: 100%;
+				border: 0;
+			}
+		}
+
+		&:not([data-tab='chat']) {
+			font-size: var(--font-size);
+			overflow: auto;
+		}
+
+		@import
+			'sidebar__tab--sched',
+			'sidebar__tab--news';
+	}
+}

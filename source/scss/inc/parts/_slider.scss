@@ -1,0 +1,103 @@
+:root {
+	--menu-width: 200px;
+}
+
+body {
+	&:not([data-slider-is-open]) {
+		.container {
+			&--slider {
+				transform: translateX(calc(-1 * var(--menu-width)));
+			}
+		}
+
+		&[data-is-edge] { // едж кривой, так что только так
+			.container {
+				&--slider {
+					@extend %visually-hidden;
+				}
+			}
+		}
+	}
+
+	&[data-slider-is-open] {
+		.container {
+			&[data-content] {
+				transform: translateX(var(--menu-width));
+			}
+		}
+	}
+}
+
+.container {
+	&[data-content], &--slider {
+		@include transition(.5s);
+	}
+
+	&--slider {
+		display: grid;
+    grid-template-rows: 40px 1fr;
+    grid-template-columns: 1fr;
+
+		position: fixed;
+		top: 0; left: 0;
+
+		width: var(--menu-width);
+		height: 100%;
+
+		background-color: var(--prime-color-10d);
+		border-right: 1px solid var(--prime-color-10d);
+
+		font-size: var(--font-size);
+
+		user-select: none;
+
+		.slider-content {
+			overflow-y: auto;
+			padding: 5px 0;
+		}
+
+		.nav {
+			width: 100%;
+			color: #fff;
+
+			h3 {
+				font-weight: normal;
+				text-align: center;
+			}
+
+			ul {
+				margin-top: 5px;
+
+				li {
+					list-style: none;
+					text-align: center;
+
+					&:not(:first-child) {
+						margin-top: 5px;
+					}
+
+					&.li {
+						&--offset {
+							margin-top: 10px;
+						}
+					}
+				}
+			}
+
+			&__elem {
+				display: block;
+				width: 100%;
+				padding: 5px;
+
+				@extend %menu-nav-elem;
+			}
+		}
+
+		@import 'slider__footer';
+	}
+
+	&--popup:empty {
+		display: none;
+		width: 100%;
+	}
+}

@@ -1,0 +1,118 @@
+@import 'inc/vars';
+@import 'inc/mixins';
+@import 'inc/extend';
+
+.container {
+	&--page {
+		display: grid;
+		grid-template-rows: 40px 1fr;
+		grid-template-columns: 1fr;
+
+		background-color: #ccc;
+
+		@extend %full-width-tmpl;
+
+		.page {
+			overflow-y: auto;
+			font-size: 20px;
+
+			// в non-WebKit-based браузерах при указании у "overflow-y" параметров "scroll" и "auto" паддинга у нижней границы элемента просто-напросто нет. Почитав багзиллу решил, что пускай так и будет, если разрабы бразера не могут 7 лет пофиксить один баг, бегать с костылями я за ними не собираюсь
+			padding: 15px;
+
+			@import 'inc/links-style';
+
+			@import 'inc/parts/pages/page__section';
+
+			h2 {
+				margin: .3em 0 .4em;
+
+				.anchor {
+					margin-left: .3em;
+					border: 0;
+
+					&:not([href]) {
+						display: none;
+					}
+
+					&::before {
+						content: '#';
+					}
+				}
+			}
+
+			p {
+				&:not(:first-of-type):not([data-no-top-margin]) {
+					margin-top: 10px;
+				}
+
+				&.small {
+					font-size: .8em;
+					line-height: 1.3em;
+				}
+			}
+
+			ul {
+				&:not([data-no-top-margin]) {
+					margin-top: 10px;
+				}
+
+				li {
+					list-style-type: square;
+					margin: .1em 0;
+				}
+
+				&.list {
+					li {
+						&::after {
+							content: ';';
+						}
+
+						&:last-child::after {
+							content: '.'
+						}
+					}
+				}
+			}
+
+			kbd {
+				padding: .2em .4em;
+				font-size: .8em;
+				color: #fff;
+				background-color: var(--prime-color-10d);
+				border-radius: .2em;
+			}
+
+			details {
+				margin-top: 10px;
+
+				summary {
+					display: inline-block;
+					cursor: pointer;
+				}
+
+				/* Какая-никакая кастомизация для Лисы */
+				@-moz-document url-prefix() {
+					summary::before {
+						display: inline-block;
+						width: 1em;
+						margin-right: 5px;
+
+						font-family: 'ForkAwesome';
+						font-size: .8em;
+						text-align: center;
+
+						content: '\f067';
+					}
+
+					&[open] {
+						summary::before {
+							content: '\f068';
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@import 'inc/parts/pages/mediaq';

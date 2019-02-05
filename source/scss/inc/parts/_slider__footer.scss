@@ -1,0 +1,26 @@
+.copy {
+	margin-top: 15px;
+
+	$_color: #c4c4c4;
+
+	text-align: center;
+	color: $_color;
+
+	cursor: default;
+
+	a {
+		color: lighten($_color, 10%);
+
+		&:hover {
+			color: $_color;
+		}
+	}
+
+	&__heart {
+		@include transition(.2s);
+
+		&:hover {
+			color: #fe5a5a;
+		}
+	}
+}

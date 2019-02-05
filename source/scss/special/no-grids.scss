@@ -1,0 +1,50 @@
+/*
+ * Костыль для браузеров, не умеющих в CSS Grids
+ */
+
+@supports not (display: grid) {
+	@media screen and (min-width: 949px) {
+		.container {
+			&--main {
+				.main {
+					height: calc(100% - 40px);
+
+					.player, .sidebar {
+						display: inline-block;
+						height: 100%;
+					}
+
+					.player {
+						width: calc(100% - var(--sidebar-width));
+					}
+
+					.sidebar {
+						width: var(--sidebar-width);
+					}
+				}
+
+				&[data-sidebar-hidden] {
+					.player {
+						width: 100%;
+					}
+
+					.sidebar {
+						display: none;
+					}
+				}
+			}
+
+			&--page {
+				.page {
+					height: 100%;
+
+					section {
+						&:last-child {
+							padding-bottom: 50px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

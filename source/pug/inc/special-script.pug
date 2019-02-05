@@ -1,0 +1,24 @@
+script void(()=>{let a=e=>{let f=document.createElement('link');f.setAttribute('rel','stylesheet'),f.setAttribute('href',`#{PATHS.css}/${e}.min.css?v=#{VERSION}`),document.head.appendChild(f)},b=new Date,c=b.getMonth()+1,d=b.getDate();5==c&&1==d?a('special/1may'):5==c&&6==d?a('special/asian-wave'):a('special/telegram')})();
+
+//- void (() => {
+//- 	let loadCSSfile = fileName => {
+//- 		let file = document.createElement('link')
+//- 		file.setAttribute('rel', 'stylesheet')
+//- 		file.setAttribute('href', `#{PATHS.css}/${fileName}.min.css?v=#{VERSION}`)
+//- 		document.head.appendChild(file)
+//- 	}
+//- 
+//- 	let nowTime = new Date()
+//- 
+//- 	let
+//- 		todayMouth =  nowTime.getMonth() + 1,
+//- 		todayDay =    nowTime.getDate()
+//- 
+//- 	if (todayMouth == 5 && todayDay == 1) {
+//- 		loadCSSfile('special/1may')
+//- 	} else if (todayMouth == 5 && todayDay == 6) {
+//- 		loadCSSfile('special/asian-wave')
+//- 	} else {
+//- 		loadCSSfile('special/telegram')
+//- 	}
+//- })()

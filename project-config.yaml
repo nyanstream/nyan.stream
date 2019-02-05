@@ -1,0 +1,53 @@
+title: NYAN.STREAM
+
+domain: nyan.stream
+
+prime_color: '#4d539c'
+
+dirs:
+  dev: source
+  build: build
+  dist: dist
+  dist_content: dist_content
+  assets: assets
+
+trackers:
+  google: UA-41033513-8
+  yandex: 47766679
+
+URLs:
+  chat: https://thenyan.chatovod.ru
+
+  links:
+    donate: https://www.donationalerts.ru/r/thenyan
+    donate_report: https://docs.google.com/spreadsheets/d/1EqvBfoaMvK4rUisp4--MbRIih7r17HGMu1t501bjHkE
+    request: https://docs.google.com/forms/d/e/1FAIpQLScbdpIEimhG1Ouq6O8hOeRJhqMGrggOaT0IDO7hbtxl0Wm4Xw/viewform
+    request_view: https://docs.google.com/spreadsheets/d/1u_iqJh17DjxPCEms_600-vFUNmDoKrD_fsk-PsiR3l8
+
+  links_soc:
+    vk: https://vk.com/thenyan
+    tg: https://t.me/thenyan
+    discord: https://discord.gg/96cq8w8
+
+  links_stat:
+    shiki: https://shikimori.org/nyan/list/anime/order-by/name
+    trakt: https://trakt.tv/users/thenyan/history
+    rawg: https://rawg.io/@nya/games
+
+PLAYERS:
+  rtmp: rtmp://stream1.cybergame.tv:2936/live/thenya
+
+  # e.g. player.twitch.tv/?channel=%player%
+  twitch: tehnyan
+
+  # e.g. mixer.com/embed/player/%player%
+  mixer: 28469102
+
+  # e.g. goodgame.ru/player?%player%
+  gg: 144937
+
+  # github.com/eientei/videostreamer
+  # e.g. wss://video.eientei.org/video/nya.wss
+  eientei:
+    server: video.eientei.org
+    user: nya

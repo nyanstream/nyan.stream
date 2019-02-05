@@ -1,0 +1,72 @@
+doctype html
+html(lang='ru')
+	head
+		include inc/vars.pug
+		include inc/mixins.pug
+
+		- var subPage = { title: 'О проекте', link: '/about' }
+
+		include inc/metadata.pug
+
+		link(rel='canonical' href=`${URLs.self}${subPage.link}`)
+
+		each URL in ['www.google-analytics.com', 'fonts.gstatic.com', 'mc.yandex.ru']
+			link(rel='dns-prefetch' href=`//${URL}`)
+
+		each CSS in [{ file: `fork-awesome/${LIBS.css.fa.v}/css/fork-awesome.min.css`, sri: LIBS.css.fa.sri }]
+			link(rel='stylesheet' href=`https://cdnjs.cloudflare.com/ajax/libs/${CSS.file}` integrity=`${CSS.sri}` crossorigin='anonymous')
+
+		each CSS in ['nyan-every', 'nyan-pages']
+			link(rel='stylesheet' href=`${PATHS.css}/${CSS}.min.css?v=${VERSION}`)
+
+		//- include inc/special-script.pug
+
+	body
+		div.container.container--page(data-error='no-js' data-content)
+			header.header
+				ul.menu.menu--left
+					include inc/parts/container--slider__btn.pug
+
+				+headerBrand
+
+			main.page
+				section#about
+					h2 #[span О проекте]
+
+					p Мы &ndash; небольшое сообщество людей, которые иногда собираются вместе и смотрят различные мультимедиа (аниме, сериалы, фильмы, игры, etc).
+					p Никаких платных услуг или привилегий у нас нет и не планируется. Однако, вы можете поддерживать нашу мотивацию своими #[+externalLink(URLs.links.donate, 'добровольными пожертвованиями')] (ведь сервер и лапшу быстрого приготовления для стримеров нужно чем-то оплачивать).
+
+				section.error-box.noprint
+					include inc/nojs-text.pug
+
+				section.hidden.noprint(data-page-op='no-ru')
+					p If you are not a Russian-speaking user, you can use #[+externalLink(`https://translate.google.com/translate?hl=ru&tl=en&u=${URLs.self}${subPage.link}`, 'this link')] to view this page. Sorry!
+
+				section#contact
+					h2 #[span Связь]
+
+					p Связаться с нами можно посредством почты #[+mailto(projectEmail)] или с помощью #[+externalLink(URLs.links_soc.vk.replace('.com', '.me'), 'личных сообщений')] нашего сообщества ВК.
+
+				section#chat-rules
+					include inc/parts/page--about/section--chat-rules.pug
+
+				section#copyright
+					include inc/parts/page--about/section--copyright.pug
+
+				section.hidden.noprint(style='text-align: center' data-page-op='only-mode')
+					p Обратите внимание, что часть контента данной страницы скрыта.
+					p #[a(href=`${subPage.link}`) Нажмите сюда чтобы увидеть полную версию].
+
+		div.container.container--slider
+			header.header
+				include inc/parts/container--slider__menu.pug
+
+			div.slider-content
+				include inc/parts/container--slider__nav.pug
+
+				include inc/parts/container--slider__footer.pug
+
+		each JS in ['vendors/kamina', 'special/ms-edge-suck', 'special/info-from-meta', 'special/check-location', 'core', 'langs', 'special/client-tests', 'nyan-every', 'nyan-pages']
+			script(src=`${PATHS.js}/${JS}.min.js?v=${VERSION}` defer)
+
+		include inc/bbiswu.pug

@@ -1,0 +1,19 @@
+doctype html
+html(lang='ru')
+	head
+		include ../inc/vars.pug
+
+		meta(charset='utf-8')
+		title #{title} / Player / GG player
+		link(rel='shortcut icon' href=`${URLs.favicon}`)
+
+		include ../inc/meta-viewport.pug
+		meta(name='robots' content='noindex, nofollow')
+
+		each URL in ['cdn.jsdelivr.net', 'storage2.goodgame.ru', 'hls.goodgame.ru', 'static.goodgame.ru', 'imasdk.googleapis.com']
+			link(rel='dns-prefetch' href=`//${URL}`)
+
+		link(rel='stylesheet' href=`${PATHS.css}/players/player-iframe.min.css?v=${VERSION}`)
+
+	body
+		iframe.player(src=`https://goodgame.ru/player?${PLAYERS.gg}#autoplay` sandbox='allow-same-origin allow-scripts' allowfullscreen)

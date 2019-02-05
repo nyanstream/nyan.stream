@@ -1,0 +1,26 @@
+@media screen and (max-width: 949px) {
+	.container {
+		&--main {
+			&[data-sidebar-hidden] {
+				button[data-action='sidebarTrigger'] > i.fa::before {
+					content: '\f077';
+				}
+
+				.main {
+					grid-template-rows: 1fr;
+				}
+			}
+
+			.main {
+				grid-template-columns: 1fr;
+				grid-template-rows: 1fr 65%;
+
+				.sidebar {
+					border-left: 0;
+				}
+			}
+		}
+	}
+}
+
+@import 'mediaq__print';
