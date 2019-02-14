@@ -240,7 +240,7 @@ gulp.task('dist:copy', () => tube([
 ]))
 
 gulp.task('dist:clean', () => tube([
-	gulp.src(dirs.dist, { read: false }),
+	gulp.src(dirs.dist, { read: false, allowEmpty: true }),
 	clean()
 ]))
 
@@ -251,7 +251,7 @@ gulp.task('dist', gulp.series('dist:clean', 'dist:copy'))
 gulp.task('build', gulp.parallel('pug:build', 'webmanifest:build', 'js:assets:build', 'js:service-worker:build', 'js:get-kamina', 'scss:build'))
 
 gulp.task('build:clean', () => tube([
-	gulp.src(dirs.build, { read: false }),
+	gulp.src(dirs.build, { read: false, allowEmpty: true }),
 	clean()
 ]))
 
