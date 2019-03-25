@@ -19,8 +19,8 @@ html(lang='ru')
 		each nyanMeta in [{ name: 'players-path', content: `${PATHS.players}` }, { name: 'backup-player', content: 'gg' }]
 			meta(name=`_nyan:${nyanMeta.name}` content=`${nyanMeta.content}`)
 
-		each CSS in [{ file: `fork-awesome/${LIBS.css.fa.v}/css/fork-awesome.min.css`, sri: LIBS.css.fa.sri }]
-			link(rel='stylesheet' href=`https://cdnjs.cloudflare.com/ajax/libs/${CSS.file}` integrity=`${CSS.sri}` crossorigin='anonymous')
+		each CSS in [{ file: `dialog-polyfill/${LIBS.css.dialog_polyfill.v}/dialog-polyfill.min`, sri: LIBS.css.dialog_polyfill.sri }, { file: `fork-awesome/${LIBS.css.fa.v}/css/fork-awesome.min`, sri: LIBS.css.fa.sri }]
+			link(rel='stylesheet' href=`https://cdnjs.cloudflare.com/ajax/libs/${CSS.file}.css` integrity=`${CSS.sri}` crossorigin='anonymous')
 
 		each CSS in ['nyan-every', 'nyan-main']
 			link(rel='stylesheet' href=`${PATHS.css}/${CSS}.min.css?v=${VERSION}`)
@@ -73,7 +73,7 @@ html(lang='ru')
 			p Зачем Вы хотите распечатать этот сайт?
 			p Совсем японских мультиков пересмотрели?
 
-		each JS in [{ file: `url-search-params/${LIBS.js.urlSP_polyfill.v}/url-search-params`, sri: LIBS.js.urlSP_polyfill.sri }, { file: `fetch/${LIBS.js.fetch.v}/fetch.min`, sri: LIBS.js.fetch.sri }, { file: `moment.js/${LIBS.js.moment.v.same}/moment.min`, sri: LIBS.js.moment.sri.same }, { file: `moment.js/${LIBS.js.moment.v.same}/locale/ru`, sri: LIBS.js.moment.sri.locale }, { file: `ismobilejs/${LIBS.js.isMobile.v}/isMobile.min`, sri: LIBS.js.isMobile.sri }]
+		each JS in [{ file: `url-search-params/${LIBS.js.urlSP_polyfill.v}/url-search-params`, sri: LIBS.js.urlSP_polyfill.sri }, { file: `dialog-polyfill/${LIBS.js.dialog_polyfill.v}/dialog-polyfill.min`, sri: LIBS.js.dialog_polyfill.sri }, { file: `fetch/${LIBS.js.fetch.v}/fetch.min`, sri: LIBS.js.fetch.sri }, { file: `moment.js/${LIBS.js.moment.v.same}/moment.min`, sri: LIBS.js.moment.sri.same }, { file: `moment.js/${LIBS.js.moment.v.same}/locale/ru`, sri: LIBS.js.moment.sri.locale }, { file: `ismobilejs/${LIBS.js.isMobile.v}/isMobile.min`, sri: LIBS.js.isMobile.sri }]
 			script(src=`https://cdnjs.cloudflare.com/ajax/libs/${JS.file}.js` integrity=`${JS.sri}` crossorigin='anonymous' defer)
 
 		each JS in ['vendors/kamina', 'special/ms-edge-suck', 'special/info-from-meta', 'special/mlsp', 'core', 'langs', 'special/client-tests', 'nyan-every', 'parsers', 'nyan-main']

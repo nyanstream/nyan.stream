@@ -25,8 +25,18 @@ js:
     v: 2.0.4 # 3.0.0 глючная
     sri: sha256-eOUokb/RjDw7kS+vDwbatNrLN8BIvvEhlLM5yogcDIo=
 
+  # cdnjs.com/libraries/dialog-polyfill (dialog-polyfill.min.js)
+  dialog_polyfill:
+    v: 0.5.0
+    sri: sha256-zuWV5NPG/4LAjEtLJIe7ZyTHW7glLsCJcP2za9U7KEM=
+
 css:
   # cdnjs.com/libraries/fork-awesome (fork-awesome.min.css)
   fa:
     v: 1.0.4 # обновлять только если понадобятся новые иконки
     sri: sha256-tjfjH2pLkP1K9tzW8y7R1b/Ji7SNq8hgZoldn74zw1o=
+
+  # cdnjs.com/libraries/dialog-polyfill (dialog-polyfill.min.css)
+  dialog_polyfill:
+    v: 0.5.0
+    sri: sha256-qVjBFbunjrWQ4IikV5dkK1ziW9XKskisX1rUbCIJEhk=

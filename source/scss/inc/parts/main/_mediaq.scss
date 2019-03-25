@@ -1,6 +1,10 @@
 @media screen and (max-width: 949px) {
 	.container {
 		&--main {
+			button[data-action='sidebarTrigger'] > i.fa::before {
+				content: '\f078';
+			}
+
 			&[data-sidebar-hidden] {
 				button[data-action='sidebarTrigger'] > i.fa::before {
 					content: '\f077';

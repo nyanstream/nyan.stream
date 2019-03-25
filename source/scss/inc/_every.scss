@@ -20,7 +20,13 @@ body {
 	@import 'links-style';
 }
 
-button { font: inherit }
+select {
+	@at-root button, & {
+		font: inherit
+	}
+
+	font-size: .9em;
+}
 
 script {
 	@extend %visually-hidden;

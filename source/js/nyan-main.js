@@ -316,11 +316,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	void (() => {
 		let _trigger = $make.qs('button[data-action="optionsTrigger"]')
 
-		if (!(typeof HTMLDialogElement === 'function')) {
-			_trigger.style.display = 'none'
-		}
-
 		let optionsDialog = $make.qs('.dialog.dialog--options')
+
+		if (
+			!(typeof HTMLDialogElement === 'function') &&
+			dialogPolyfill
+		) {
+			dialogPolyfill.registerDialog(optionsDialog)
+		}
 
 		if (optionsDialog) {
 			if (_trigger) {

@@ -14,15 +14,18 @@ html(lang='ru')
 		include ../inc/meta-font.pug
 
 		link(rel='stylesheet' href=`${PATHS.css}/apps/error-page.min.css?v=${VERSION}`)
+
 	body
 		main(data-error='403')
 			h1 Ошибка 403 #[small ヽ( `д´*)ノ]
 			h2 Доступ к запрашиваемому объекту запрещён.
 			h3 Возможно, стоит пройти #[a(href='/?from=error-403') на главную страницу]?
+
 		main(data-error='404')
 			h1 Ошибка 404 #[small (╬ Ò﹏Ó)]
 			h2 Запрашиваемый объект не обнаружен.
 			h3 Возможно, стоит пройти #[a(href='/?from=error-404') на главную страницу]?
+
 		main(data-error='undefined')
 			h1 Ого! #[small (⊙_⊙)]
 			h2 Возникла неизвестная ошибка.

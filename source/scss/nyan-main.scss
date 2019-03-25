@@ -23,7 +23,7 @@ body {
 		@extend %full-width-tmpl;
 
 		button[data-action='sidebarTrigger'] > i.fa::before {
-			content: '\f00d';
+			content: '\f054';
 		}
 
 		&[data-sidebar-hidden] {
