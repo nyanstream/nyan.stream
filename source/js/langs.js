@@ -16,10 +16,12 @@
 
 let getString = s => {
 	let trStrings = {
+
 		about_project: {
 			ru: 'О проекте',
 			en: 'About us',
 		},
+
 		donate: {
 			ru: 'Поддержать проект',
 			en: 'Support us',
@@ -28,6 +30,7 @@ let getString = s => {
 			ru: 'Посмотреть отчёты',
 			en: 'Reports on donations',
 		},
+
 		ext_chrome: {
 			ru: 'Расширение для Chrome',
 			en: 'Extension for Chrome',
@@ -36,6 +39,7 @@ let getString = s => {
 			ru: 'Расширение для Opera',
 			en: 'Extension for Opera',
 		},
+
 		msk_time_note: {
 			ru: 'Время московское',
 			en: 'Moscow time',
@@ -44,6 +48,7 @@ let getString = s => {
 			ru: 'Местное время',
 			en: 'Local time',
 		},
+
 		request: {
 			ru: 'Сделать реквест',
 			en: 'Request something',
@@ -52,6 +57,7 @@ let getString = s => {
 			ru: 'Посмотреть реквесты',
 			en: 'View requests',
 		},
+
 		err_ls: {
 			ru: 'В вашем браузере отключено сохранение данных для нашего сайта, и из-за этого он не может нормально функционировать.',
 		},
@@ -67,18 +73,22 @@ let getString = s => {
 			ru: 'API сайта недоступно.',
 			en: 'Site API is unavailable.',
 		},
+
 		tnx: {
 			ru: 'Спасибо',
 			en: 'Thank you',
 		},
+
 		empty_schedule: {
 			ru: 'Расписание пустое',
 			en: 'Scheldue is empty',
 		},
+
 		latest_check: {
 			ru: 'Последняя проверка',
 			en: 'Latest check',
 		},
+
 		com_vk: {
 			ru: 'Сообщество в VK',
 			en: 'Сommunity on VK',
@@ -91,10 +101,12 @@ let getString = s => {
 			ru: 'Сервер в Discord',
 			en: 'Discord server',
 		},
+
 		vk_repost: {
 			ru: 'Репост',
 			en: 'Repost',
 		},
+
 		noti: {
 			ru: 'Оповещение',
 			en: 'Notification',
@@ -103,10 +115,12 @@ let getString = s => {
 			ru: 'Скрыть оповещение',
 			en: 'Hide notification',
 		},
+
 		show: {
 			ru: 'Показать',
 			en: 'Show',
 		},
+
 		tab_sched: {
 			ru: 'Расписание',
 			en: 'Schedule',
@@ -117,18 +131,16 @@ let getString = s => {
 			en: 'News',
 			ja: 'ニュース',
 		},
+
 		sidebar_trigger: {
 			ru: 'Скрыть/показать боковую панель',
 			en: 'Hide or show sidebar',
-		},
-		slider_trigger: {
-			ru: 'Скрыть/показать боковое меню',
-			en: 'Hide or show side menu',
 		},
 		options_trigger: {
 			ru: 'Открыть настройки',
 			en: 'Settings',
 		},
+
 		within: {
 			ru: 'Далее',
 			en: 'Starts',
@@ -137,10 +149,12 @@ let getString = s => {
 			ru: s => `Сейчас (ещё ${s})`,
 			en: s => `Now (${s} left)`,
 		},
+
 		play: {
 			ru: 'Играть',
 			en: 'Play',
 		},
+
 		player: {
 			ru: 'Плеер',
 			en: 'Player',
@@ -150,18 +164,22 @@ let getString = s => {
 			en: 'Chat',
 			ja: 'チャット',
 		},
-		anime_backup: {
+
+		backup: {
 			ru: 'на бэкапе',
 			en: 'on a backup stream',
 		},
+
 		links: {
 			ru: 'Ссылки',
 			en: 'Links',
 		},
+
 		logo: {
 			ru: 'Логотип',
 			en: 'Logo',
 		},
+
 		link_shiki: {
 			ru: 'Профиль на Shikimori',
 			en: 'Shikimori profile'
@@ -174,30 +192,37 @@ let getString = s => {
 			ru: 'Профиль на RAWG',
 			en: 'RAWG profile'
 		},
+
 		made_with: {
 			ru: 'сделано с',
 			en: 'made with',
 		},
+
 		go_main_page: {
 			ru: 'Перейти на главную',
 			en: 'Go to the main page',
 		},
+
 		settings: {
 			ru: 'Настройки',
 			en: 'Settings',
 		},
+
 		close: {
 			ru: 'Закрыть',
 			en: 'Close',
 		},
+
 		save: {
 			ru: 'Сохранить',
 			en: 'Save',
 		},
+
 		anchor: {
 			ru: 'Якорь',
 			en: 'Anchor'
 		},
+
 		happy_ny: {
 			ru: 'С новым годом!',
 			en: 'Happy New Year!',
@@ -218,6 +243,7 @@ let getString = s => {
 		},
 
 		// названия локализаций
+
 		l10n_ru: {
 			ru: 'Русская',
 			en: 'Russian',

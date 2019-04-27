@@ -4,11 +4,11 @@ js:
   moment:
     v:
       same: 2.24.0
-      timezone: 0.5.23
+      timezone: 0.5.25
     sri:
       same: sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ= # moment.min.js
       locale: sha256-qR4pdhxtx7dwKGJuYGoYjfnCQBPXv47hzLLU8jPLVUY= # ru.js
-      timezone: sha256-15jnh2lee6Li94j6XCbw8PRzNZe29O/W9i97yXVyRmA= # moment-timezone-with-data.min.js
+      timezone: sha256-Bkhsq/t3HC8InEULigDAPAIBTGgvRLnDmJEjuyBvA6U= # moment-timezone-with-data.min.js
 
   # cdnjs.com/libraries/ismobilejs (isMobile.min.js)
   isMobile:

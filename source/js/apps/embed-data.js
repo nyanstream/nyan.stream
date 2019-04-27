@@ -38,7 +38,7 @@ let $embed = {
 				if (cutToHour && cutToHour > hourOfS) { return }
 
 				if ('backup' in item && item.backup == true) {
-					backupString = ` <span class="sched-backup">[${getString('anime_backup')}]</span>`
+					backupString = ` <span class="sched-backup">[${getString('backup')}]</span>`
 				}
 
 				dataContainer.appendChild(

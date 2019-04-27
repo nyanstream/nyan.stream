@@ -115,7 +115,7 @@ let $parser = {
 				let backupPlayerLink = `?${STRINGS.playerGETparam}=` + encodeURIComponent(_metaInfoPlayer)
 
 				itemTitle += ('backup' in item && item.backup == true)
-					? ` [<a href="${backupPlayerLink}">${getString('anime_backup')}</a>]`
+					? ` [<a href="${backupPlayerLink}">${getString('backup')}</a>]`
 					: ''
 			}
 
