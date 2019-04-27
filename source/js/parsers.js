@@ -348,7 +348,7 @@ let $parser = {
 
 		notiContentBody.innerHTML = notiText
 
-		let notiProhibitedElemsTrigger = 'script, style, *[onload]'
+		let notiProhibitedElemsTrigger = 'script, style, *[onload], *[onerror], *[onabort]'
 
 		if ($make.qsf(notiProhibitedElemsTrigger, notiContentBody)) {
 			$make.qsf(notiProhibitedElemsTrigger, notiContentBody, ['a']).forEach(_script => _script.remove())

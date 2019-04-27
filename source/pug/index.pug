@@ -8,10 +8,13 @@ html(lang='ru')
 
 		link(rel='canonical' href=`${URLs.self}`)
 
-		each URL in ['aw-cdn.blyat.science', 'nyan-api.blyat.science', 'www.google-analytics.com', 'ssl.google-analytics.com', 'fonts.gstatic.com', 'mc.yandex.ru', 'counter.yadro.ru', 'images.weserv.nl', 'st1.chatovod.ru']
+		each URL in ['nyan-api.blyat.science', 'fonts.gstatic.com']
+			link(rel='preconnect' href=`//${URL}`)
+
+		each URL in ['aw-cdn.blyat.science', 'www.google-analytics.com', 'ssl.google-analytics.com', 'mc.yandex.ru', 'counter.yadro.ru', 'images.weserv.nl', 'st1.chatovod.ru']
 			link(rel='dns-prefetch' href=`//${URL}`)
 
-		each verif in [{ type: 'google-site-verification', code: 'CZKFsMeBuqFJ1KPYIaKptrBMmgolcM3bBbu6wt1Pf_g' }]
+		each verif in [{ type: 'google-site-verification', code: 'CZKFsMeBuqFJ1KPYIaKptrBMmgolcM3bBbu6wt1Pf_g' }, { type: 'yandex-verification', code: 'eab231fe75b6da62' }]
 			meta(name=`${verif.type}` content=`${verif.code}`)
 
 		//- { name: 'default-player', content: 'gg' } - смена загружаемого по умолчанию плеера

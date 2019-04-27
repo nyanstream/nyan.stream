@@ -4,13 +4,16 @@ html(lang='ru')
 		include inc/vars.pug
 		include inc/mixins.pug
 
-		- var subPage = { title: 'О проекте', link: '/about' }
+		- let subPage = { title: 'О проекте', link: '/about' }
 
 		include inc/metadata.pug
 
 		link(rel='canonical' href=`${URLs.self}${subPage.link}`)
 
-		each URL in ['www.google-analytics.com', 'fonts.gstatic.com', 'mc.yandex.ru']
+		each URL in ['fonts.gstatic.com']
+			link(rel='preconnect' href=`//${URL}`)
+
+		each URL in ['www.google-analytics.com', 'mc.yandex.ru']
 			link(rel='dns-prefetch' href=`//${URL}`)
 
 		each CSS in [{ file: `fork-awesome/${LIBS.css.fa.v}/css/fork-awesome.min.css`, sri: LIBS.css.fa.sri }]
