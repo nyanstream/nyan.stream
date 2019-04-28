@@ -16,9 +16,9 @@ html, body {
 
 body {
 	font-family: Roboto, Arial, sans-serif;
-
-	@import 'links-style';
 }
+
+@import 'links-style';
 
 select {
 	@at-root button, & {

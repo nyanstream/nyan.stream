@@ -66,9 +66,13 @@
 	}
 
 	.menu {
+		@include flexbox(auto, auto, center, auto);
+
 		position: absolute;
 		top: 0;
 		height: var(--headerHeight);
+
+		font-size: 18px;
 
 		&--right {
 			right: 0;
@@ -79,50 +83,37 @@
 			left: 0;
 			padding-left: 5px;
 		}
-	}
-}
 
-.menu {
-	@include flexbox(auto, auto, center, auto);
-	font-size: 18px;
+		&__elem {
+			@include flexbox(auto, center, center, auto);
 
-	&--right {
-		right: 0;
-		padding-right: 5px;
-	}
+			border-radius: 5px;
 
-	&--left {
-		left: 0;
-		padding-left: 5px;
-	}
+			width: 2em; height: 100%;
+			padding: 0 10px;
 
-	user-select: none;
-	cursor: default;
+			font-size: 1em;
 
-	&__elem {
-		@include flexbox(auto, center, center, auto);
+			@include transition(.3s); // для <button>
 
-		border-radius: 5px;
-
-		width: 2em; height: 100%;
-		padding: 0 10px;
-
-		font-size: 1em;
-
-		@extend %menu-nav-elem;
-	}
-
-	li {
-		display: inline;
-		list-style: none;
-		height: 30px;
-
-		&:not(:first-child) {
-			margin-left: 5px;
+			@extend %menu-nav-elem;
 		}
 
-		&.li {
-			&--offset { margin-right: 5px }
+		user-select: none;
+		cursor: default;
+
+		li {
+			display: inline;
+			list-style: none;
+			height: 30px;
+
+			&:not(:first-child) {
+				margin-left: 5px;
+			}
+
+			&.li {
+				&--offset { margin-right: 5px }
+			}
 		}
 	}
 }
