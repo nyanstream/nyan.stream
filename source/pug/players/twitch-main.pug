@@ -4,7 +4,7 @@ html(lang='ru')
 		include ../inc/vars.pug
 
 		meta(charset='utf-8')
-		title #{title} / Player / Twitch player
+		title #{title} / Player / Twitch player (main)
 		link(rel='shortcut icon' href=`${URLs.favicon}`)
 
 		include ../inc/meta-viewport.pug
@@ -16,4 +16,4 @@ html(lang='ru')
 		link(rel='stylesheet' href=`${PATHS.css}/players/player-iframe.min.css?v=${VERSION}`)
 
 	body
-		iframe.player(src=`https://player.twitch.tv/?channel=${PLAYERS.twitch}&autoplay=true` sandbox='allow-same-origin allow-scripts allow-presentation' allowfullscreen)
+		iframe.player(src=`https://player.twitch.tv/?channel=${PLAYERS.twitch.main}&autoplay=true` sandbox='allow-same-origin allow-scripts allow-presentation' allowfullscreen)

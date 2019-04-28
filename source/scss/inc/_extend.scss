@@ -6,7 +6,7 @@
 }
 
 %menu-nav-elem {
-	background-color: rgba(0, 0, 0, .1);
+	background-color: transparent;
 
 	border: 0 !important;
 	outline: 0;
@@ -14,9 +14,7 @@
 	opacity: .7;
 
 	color: #fff;
-	text-decoration: none;
 
-	@include transition(.3s);
 	cursor: pointer;
 
 	&:hover { opacity: .9 }
@@ -37,5 +35,4 @@
 	--tab-hover-color:   #{darken($primeColor, 8%)};
 	--tab-focus-color:   #{darken($primeColor, 6%)};
 	--tab-active-color:  #{darken($primeColor, 13%)};
-	--tab-border-color:  #{darken($primeColor, 3%)};
 }

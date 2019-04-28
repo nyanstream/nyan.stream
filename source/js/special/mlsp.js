@@ -1,9 +1,9 @@
 'use strict'
 
 let modifyLocSearchParam = ({ param = '', value = '', remove = false }) => {
-    let loc = location
+	let loc = location
 
-    let _URL = new URLSearchParams(loc.search)
+	let _URL = new URLSearchParams(loc.search)
 
 	if (remove == true) {
 		_URL.delete(param, value)
@@ -16,9 +16,9 @@ let modifyLocSearchParam = ({ param = '', value = '', remove = false }) => {
 			? `?${_URL.toString()}`
 			: ''
 
-    history.pushState(
-        '',
-        document.title,
-        `${loc.pathname}${newSearchString}`
-    )
+	history.pushState(
+		'',
+		document.title,
+		`${loc.pathname}${newSearchString}`
+	)
 }

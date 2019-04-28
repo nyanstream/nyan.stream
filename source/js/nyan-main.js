@@ -97,6 +97,7 @@ let $init = {
 		}
 
 		switch (playerName) {
+			case 'twitch-backup':
 			case 'gg':
 			case 'mixer':
 			case 'grind':
@@ -190,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	 * Если задан GET-запрос STRINGS.playerGETparam, то при загрузке сайта вместо стандартного выбирается другой плеер
 	 */
 
-	let playerName = 'twitch' // стандартный плеер
+	let playerName = 'twitch-main' // стандартный плеер
 
 	void (() => {
 		let _playerNameFromMeta = getInfoFromMeta('default-player')

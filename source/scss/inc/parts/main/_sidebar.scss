@@ -16,18 +16,7 @@
 				height: 100%;
 				list-style: none;
 
-				border-left: .5px solid var(--tab-border-color);
-				border-right: .5px solid var(--tab-border-color);
-
 				@include transition(.5s);
-
-				&:first-child {
-					border-left: 0;
-				}
-
-				&:last-child {
-					border-right: 0;
-				}
 
 				button[data-action='selectTab'] {
 					@include flexbox(auto, center, auto, auto);

@@ -9,10 +9,4 @@ a {
 	text-decoration: none;
 
 	@include transition(.3s);
-
-	&:not([data-style*='no-default-hover']) {
-		&:hover {
-			background-color: rgba($textColor, .1);
-		}
-	}
 }

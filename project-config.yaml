@@ -38,7 +38,9 @@ PLAYERS:
   rtmp: rtmp://stream1.cybergame.tv:2936/live/thenya
 
   # e.g. player.twitch.tv/?channel=%player%
-  twitch: tehnyan
+  twitch:
+    main: tehnyan
+    backup: zdesneanime
 
   # e.g. mixer.com/embed/player/%player%
   mixer: 28469102

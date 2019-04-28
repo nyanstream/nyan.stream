@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 				if (target !== slider && !slider.contains(target) && target !== trigger) {
 					delete bodyData[dataItemName]
-		    	}
+				}
 			}
 		}
 

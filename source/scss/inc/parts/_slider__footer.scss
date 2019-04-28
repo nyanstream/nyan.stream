@@ -1,9 +1,10 @@
 .copy {
-	margin-top: 15px;
-
 	$_color: #c4c4c4;
 
+	@include flexbox(auto, center, center, auto);
+
 	text-align: center;
+	line-height: 1.3;
 	color: $_color;
 
 	cursor: default;
