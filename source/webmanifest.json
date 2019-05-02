@@ -22,7 +22,7 @@
 		}
 	],
 	"scope": "/",
-	"start_url": "/?from=mobile",
+	"start_url": "/?utm_source=same&utm_content=mobile-verison&utm_term=pwa",
 	"display": "standalone",
 	"orientation": "portrait-primary",
 	"theme_color": "",
