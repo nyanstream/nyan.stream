@@ -1,4 +1,4 @@
-# Исходный код сайта [NYAN.STREAM](https://nyan.stream/?from=github)
+# Исходный код сайта [NYAN.STREAM](https://nyan.stream/?utm_source=github&utm_content=github-repo&utm_term=nyanstream%2Fnyan.stream)
 
 В этом репозитории находится весь исходный код фронтэнд-части сайта https://nyan.stream.  
 В обычных условиях всё крутится на хостинге с Apache, при других условиях нужно взять файл `dist_content/.htaccess` и переписать под свои нужды.

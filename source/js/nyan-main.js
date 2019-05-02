@@ -314,6 +314,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	})()
 
+	/*
+	 * Обработчик формы настроек сайта
+	 */
+
 	void (() => {
 		let _trigger = $make.qs('button[data-action="optionsTrigger"]')
 
@@ -410,5 +414,22 @@ document.addEventListener('DOMContentLoaded', () => {
 				}
 			})
 		}
+	})()
+
+	/*
+	 * Удаление всех UTM-меток из URL через 5 секунд после захода на страницу
+	 */
+
+	void (() => {
+		let locSearchParams = new URLSearchParams(location.search)
+
+		setTimeout(() => {
+			Array.from(locSearchParams.keys())
+				.forEach(key => {
+					if (key.startsWith('utm_')) {
+						modifyLocSearchParam({ param: key, remove: true})
+					}
+				})
+		}, 5000)
 	})()
 })

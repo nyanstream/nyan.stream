@@ -38,7 +38,7 @@ Header set Content-Security-Policy "default-src 'self'; \
  child-src 'self' https://chatovod.ru https://thenyan.chatovod.ru https://www.youtube-nocookie.com https://player.twitch.tv https://mixer.com https://goodgame.ru; \
  frame-ancestors 'self'; \
  style-src 'self' 'unsafe-inline' data: https://cdnjs.cloudflare.com https://fonts.googleapis.com; \
- font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; \
+ font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; \
  img-src 'self' data: https://aw-cdn.blyat.science https://www.google-analytics.com https://mc.yandex.ru https://images.weserv.nl; \
  media-src 'self' blob:; \
  connect-src 'self' https://nyan-api.blyat.science https://aw-api.blyat.science wss://video.eientei.org https://mc.yandex.ru; \

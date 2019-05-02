@@ -132,6 +132,10 @@ let getString = s => {
 			ja: 'ニュース',
 		},
 
+		slider_trigger: {
+			ru: 'Скрыть/показать боковое меню',
+			en: 'Hide or show side menu',
+		},
 		sidebar_trigger: {
 			ru: 'Скрыть/показать боковую панель',
 			en: 'Hide or show sidebar',

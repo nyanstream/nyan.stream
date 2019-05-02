@@ -16,35 +16,46 @@ document.addEventListener('DOMContentLoaded', () => {
 	 */
 
 	void (() => {
-		let
-			trigger = $make.qs('button[data-action="sliderTrigger"]'),
-			slider = getContainer('slider')
+		let slider = getContainer('slider')
+
+		let trigger = $make.qs('button[data-action="sliderTrigger"]')
 
 		let bodyData = body.dataset
 
 		let dataItemName = 'sliderIsOpen'
 
 		let $slider = {
-			trigger: () => {
-				if (!(dataItemName in bodyData) || bodyData[dataItemName] == '') {
-					bodyData[dataItemName] = 'true'
-				} else {
-					delete bodyData[dataItemName]
-				}
+			isOpen: () => (dataItemName in bodyData || bodyData[dataItemName] !== undefined),
+
+			open: () => bodyData[dataItemName] = 'true',
+			hide: () => delete bodyData[dataItemName],
+
+			trigger() {
+				this.isOpen() ? this.hide() : this.open()
 			},
 
-			triggerOutside: eventTarget => {
-				if (!(dataItemName in bodyData) || bodyData[dataItemName] == '') { return }
+			triggerOutside(eventTarget) {
+				if (!this.isOpen()) { return }
 
 				let target = eventTarget
 
 				if (target !== slider && !slider.contains(target) && target !== trigger) {
-					delete bodyData[dataItemName]
+					this.hide()
 				}
-			}
+			},
 		}
 
 		trigger.addEventListener('click', () => $slider.trigger())
+
+		if (isMobile.any) {
+			document.addEventListener('swiped-right', () => {
+				if (!$slider.isOpen()) { $slider.open() }
+			})
+
+			document.addEventListener('swiped-left', () => {
+				if ($slider.isOpen()) { $slider.hide() }
+			})
+		}
 
 		// https://stackoverflow.com/a/34955953
 
