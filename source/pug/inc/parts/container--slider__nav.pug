@@ -1,10 +1,10 @@
 nav.nav
 	ul
-		if (subPage && subPage.title != '')
-			li.li--offset
+		if (!isIndexPage())
+			li
 				a.nav__elem(href='/' rel='home' data-lang='go_main_page')
 
-		li.li--offset
+		li(class=`${!isIndexPage() ? 'li--offset' : ''}`)
 			+externalLink(URLs.links.donate).nav__elem(data-lang='donate')
 		li
 			+externalLink(URLs.links.donate_report, 'Посмотреть отчёты').nav__elem(data-lang='donate_report')

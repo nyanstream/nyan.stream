@@ -24,30 +24,22 @@ void (function() {
  * Yandex.Metriсa
  */
 
-void (function(d, w, c) {
-	(w[c] = w[c] || []).push(function() {
-		try {
-			var yandexMetrikaID = _bbiswuScriptData.bbiswuYandex
+void (function() {
+	(function(m, e, t, r, i, k, a) {
+		m[i] = m[i] || function() {
+			(m[i].a = m[i].a || []).push(arguments)
+		}
 
-			w['yaCounter' + yandexMetrikaID] = new Ya.Metrika({
-				id: yandexMetrikaID,
-				clickmap: true,
-				trackLinks: true,
-				accurateTrackBounce: true,
-				trackHash: true
-			})
-		} catch (e) {}
+		m[i].l = 1 * new Date()
+
+		k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+	})(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym')
+
+	ym(_bbiswuScriptData.bbiswuYandex, 'init', {
+		clickmap: true,
+		trackLinks: true,
+		accurateTrackBounce: true,
+		webvisor: true,
+		trackHash: true
 	})
-
-	var
-		n = d.getElementsByTagName('script')[0],
-		s = d.createElement('script'),
-		f = function() { n.parentNode.insertBefore(s, n) }
-
-	s.async = true
-	s.src = 'https://mc.yandex.ru/metrika/watch.js'
-
-	if (w.opera == '[object Opera]') {
-		d.addEventListener('DOMContentLoaded', f, false)
-	} else { f() }
-})(document, window, 'yandex_metrika_callbacks')
+})()

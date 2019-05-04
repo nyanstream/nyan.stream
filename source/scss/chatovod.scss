@@ -90,6 +90,10 @@ a[href*='?cat=vip'],
 		background-color: #fff;
 	}
 
+	&People ul.chatPeopleList li.hover {
+		border: 0 !important;
+	}
+
 	&Footer {
 		background-color: #f5f5f5;
 

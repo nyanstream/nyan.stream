@@ -7,7 +7,7 @@ mixin headerBrandMainContent
 
 mixin headerBrand
 	div.brand
-		if subPage
+		if ('title' in subPage)
 			a.brand--main(href='/' rel='home' data-style='no-border no-default-hover' data-lang-title='go_main_page')
 				+headerBrandMainContent
 

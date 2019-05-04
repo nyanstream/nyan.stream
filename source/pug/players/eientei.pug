@@ -40,5 +40,5 @@ html(lang='ru')
 		each JS in [{ file: `ismobilejs/${LIBS.js.isMobile.v}/isMobile.min.js`, sri: LIBS.js.isMobile.sri }]
 			script(src=`https://cdnjs.cloudflare.com/ajax/libs/${JS.file}` integrity=`${JS.sri}` crossorigin='anonymous' defer)
 
-		each JS in ['vendors/kamina', 'special/info-from-meta', 'anime-players/player-eientei']
+		each JS in ['vendors/kamina', 'special/info-from-meta', 'players/eientei']
 			script(src=`${PATHS.js}/${JS}.min.js?v=${VERSION}` defer)

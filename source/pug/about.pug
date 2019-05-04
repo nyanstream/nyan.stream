@@ -4,7 +4,7 @@ html(lang='ru')
 		include inc/vars.pug
 		include inc/mixins.pug
 
-		- let subPage = { title: 'О проекте', link: '/about' }
+		- subPage = { title: 'О проекте', link: '/about' }
 
 		include inc/metadata.pug
 
@@ -70,7 +70,10 @@ html(lang='ru')
 
 				include inc/parts/container--slider__footer.pug
 
-		each JS in ['vendors/kamina', 'vendors/swiped-events', 'special/ms-edge-suck', 'special/info-from-meta', 'special/check-location', 'core', 'langs', 'special/client-tests', 'nyan-every', 'nyan-pages']
+		each JS in [{ file: `ismobilejs/${LIBS.js.isMobile.v}/isMobile.min`, sri: LIBS.js.isMobile.sri }]
+			script(src=`https://cdnjs.cloudflare.com/ajax/libs/${JS.file}.js` integrity=`${JS.sri}` crossorigin='anonymous' defer)
+
+		each JS in ['vendors/kamina', 'vendors/swiped-events', 'special/ms-edge-suck', 'special/info-from-meta', 'special/clf', 'core', 'langs', 'special/client-tests', 'nyan-every', 'nyan-pages']
 			script(src=`${PATHS.js}/${JS}.min.js?v=${VERSION}` defer)
 
 		include inc/bbiswu.pug

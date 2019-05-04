@@ -2,4 +2,8 @@
 
 - const projectEmail = 'nyan@cojam.ru'
 
+- let subPage = {}
+
+- let isIndexPage = () => !('title' in subPage)
+
 - URLs = Object.assign({ self: `https://${domain}`, favicon: `${PATHS.img}/favicon.png?v=${VERSION}`, logo: `${PATHS.img}/logo/logo.svg?v=${VERSION}`, manifest: `/nyan.webmanifest?v=${VERSION}`, sitemap: '/sitemap.xml' }, URLs)

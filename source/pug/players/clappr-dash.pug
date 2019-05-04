@@ -1,0 +1,28 @@
+doctype html
+html(lang='ru')
+	head
+		include ../inc/vars.pug
+
+		meta(charset='utf-8')
+		title #{title} / Player / Clappr player (DASH)
+		link(rel='shortcut icon' href=`${URLs.favicon}`)
+
+		include ../inc/meta-viewport.pug
+		meta(name='robots' content='noindex, nofollow')
+
+		each URL in [PLAYERS.stream.server]
+			link(rel='dns-prefetch' href=`//${URL}`)
+
+
+	body
+		div.player
+
+		each JS in [{ file: `clappr/${LIBS.js.clappr.v.core}/clappr.min`, sri: LIBS.js.clappr.sri.core }, { file: `dash-shaka-playback/${LIBS.js.clappr.v.dash}/dash-shaka-playback`, sri: LIBS.js.clappr.sri.dash }]
+			script(src=`https://cdnjs.cloudflare.com/ajax/libs/${JS.file}.js` integrity=`${JS.sri}` crossorigin='anonymous' defer)
+
+		script(src=`${PATHS.js}/anime-players/clappr.min.js?v=${VERSION}` defer)
+
+		script.
+			document.addEventListener('DOMContentLoaded', () => {
+				playerInit({ server: '#{PLAYERS.stream.server}', type: 'hls', link: '#{PLAYERS.stream.hls}' })
+			})

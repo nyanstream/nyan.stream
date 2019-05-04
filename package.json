@@ -2,7 +2,7 @@
 	"name": "nyan.stream",
 	"description": "Source code of NYAN.STREAM project.",
 	"private": true,
-	"version": "2.6.3",
+	"version": "2.7.0",
 	"author": "Dmitry <dmitry@cojam.ru> (https://e965.ru)",
 	"repository": "github:nyanstream/nyan.stream",
 	"license": "MIT",

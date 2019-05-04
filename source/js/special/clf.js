@@ -1,5 +1,24 @@
 'use strict'
 
+/*
+ * Кастомные функции для взаимодействия с location
+ */
+
+let checkLocation = str => {
+	let isTrue = false
+
+	switch (location.pathname) {
+		// для разработки
+		case `${str}.htm`:
+		case `${str}.html`:
+
+		case str:
+			isTrue = true
+	}
+
+	return isTrue
+}
+
 let modifyLocSearchParam = ({ param = '', value = '', remove = false }) => {
 	let loc = location
 

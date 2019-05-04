@@ -100,7 +100,6 @@ let $init = {
 			case 'twitch-backup':
 			case 'gg':
 			case 'mixer':
-			case 'grind':
 			case 'eientei':
 				playerURL = playerName; break
 			case STRINGS.defaultPlayerName:
@@ -414,22 +413,5 @@ document.addEventListener('DOMContentLoaded', () => {
 				}
 			})
 		}
-	})()
-
-	/*
-	 * Удаление всех UTM-меток из URL через 5 секунд после захода на страницу
-	 */
-
-	void (() => {
-		let locSearchParams = new URLSearchParams(location.search)
-
-		setTimeout(() => {
-			Array.from(locSearchParams.keys())
-				.forEach(key => {
-					if (key.startsWith('utm_')) {
-						modifyLocSearchParam({ param: key, remove: true})
-					}
-				})
-		}, 5000)
 	})()
 })

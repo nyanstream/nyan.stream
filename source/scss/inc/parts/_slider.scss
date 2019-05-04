@@ -46,7 +46,6 @@ body {
 		height: 100%;
 
 		background-color: var(--prime-color-10d);
-		border-right: 1px solid var(--prime-color-10d);
 
 		font-size: var(--font-size);
 
@@ -68,7 +67,7 @@ body {
 			}
 
 			ul {
-				margin-top: 5px;
+				margin-top: 15px;
 
 				li {
 					list-style: none;
@@ -80,7 +79,7 @@ body {
 
 					&.li {
 						&--offset {
-							margin-top: var(--slider-nav-items-offset);
+							margin-top: calc(var(--slider-nav-items-offset) + 5px);
 
 							&:not(:first-of-type)::before {
 								content: '';

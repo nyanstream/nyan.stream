@@ -10,6 +10,16 @@ js:
       locale: sha256-qR4pdhxtx7dwKGJuYGoYjfnCQBPXv47hzLLU8jPLVUY= # ru.js
       timezone: sha256-Bkhsq/t3HC8InEULigDAPAIBTGgvRLnDmJEjuyBvA6U= # moment-timezone-with-data.min.js
 
+  # cdnjs.com/libraries/clappr (clappr.min.js)
+  # cdnjs.com/libraries/dash-shaka-playback (dash-shaka-playback.min.js)
+  clappr:
+    v:
+      core: 0.3.4
+      dash: '2.0.15-beta'
+    sri:
+      core: sha256-STSBsxfojeIpfm+PA9rPTLoaLjCzbD2+k8CeusR7AmM=
+      dash: sha256-rcfAl8V6yYsABbt6p4dTrmyvRYsnX2cjo3NxlP2xr3s=
+
   # cdnjs.com/libraries/ismobilejs (isMobile.min.js)
   isMobile:
     v: 0.4.1

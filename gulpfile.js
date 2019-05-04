@@ -151,8 +151,8 @@ let manifestTubes = [
 			icon.src = `/${dirs.assets}/img/${icon.src}?v=${project.version}`
 		})
 
-		data.name =        project.name.toUpperCase()
-		data.short_name =  project.name
+		data.name =        config.title
+		data.short_name =  config.title_alt
 
 		data.theme_color = config.prime_color
 
