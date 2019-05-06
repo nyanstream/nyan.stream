@@ -13,14 +13,16 @@ html(lang='ru')
 		each URL in [PLAYERS.stream.server]
 			link(rel='dns-prefetch' href=`//${URL}`)
 
+		link(rel='stylesheet' href=`${PATHS.css}/players/clappr.min.css?v=${VERSION}`)
+
 
 	body
 		div.player
 
-		each JS in [{ file: `clappr/${LIBS.js.clappr.v.core}/clappr.min`, sri: LIBS.js.clappr.sri.core }, { file: `dash-shaka-playback/${LIBS.js.clappr.v.dash}/dash-shaka-playback`, sri: LIBS.js.clappr.sri.dash }]
+		each JS in [{ file: `clappr/${LIBS.js.clappr.v.core}/clappr.min`, sri: LIBS.js.clappr.sri.core }]
 			script(src=`https://cdnjs.cloudflare.com/ajax/libs/${JS.file}.js` integrity=`${JS.sri}` crossorigin='anonymous' defer)
 
-		script(src=`${PATHS.js}/anime-players/clappr.min.js?v=${VERSION}` defer)
+		script(src=`${PATHS.js}/players/clappr.min.js?v=${VERSION}` defer)
 
 		script.
 			document.addEventListener('DOMContentLoaded', () => {

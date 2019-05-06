@@ -13,7 +13,7 @@ html(lang='ru')
 		each URL in ['connect.facebook.net', 'www.google-analytics.com', 'app.getsentry.com', 'web.vortex.data.microsoft.com', 'uploads.mixer.com']
 			link(rel='dns-prefetch' href=`//${URL}`)
 
-		link(rel='stylesheet' href=`${PATHS.css}/players/player-iframe.min.css?v=${VERSION}`)
+		link(rel='stylesheet' href=`${PATHS.css}/players/iframe.min.css?v=${VERSION}`)
 
 	body
 		iframe.player(src=`https://mixer.com/embed/player/${PLAYERS.mixer}` allowfullscreen)

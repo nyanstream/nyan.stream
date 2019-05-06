@@ -97,7 +97,9 @@ let $init = {
 		}
 
 		switch (playerName) {
-			case 'twitch-backup':
+			case 'clappr-hls':
+			case 'clappr-dash':
+			case 'twitch':
 			case 'gg':
 			case 'mixer':
 			case 'eientei':
@@ -190,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	 * Если задан GET-запрос STRINGS.playerGETparam, то при загрузке сайта вместо стандартного выбирается другой плеер
 	 */
 
-	let playerName = 'twitch-main' // стандартный плеер
+	let playerName = 'clappr-hls' // стандартный плеер
 
 	void (() => {
 		let _playerNameFromMeta = getInfoFromMeta('default-player')
@@ -220,11 +222,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	 */
 
 	void (() => {
-		let
-			containerData = mainContainer.dataset,
-			trigger = $make.qs('button[data-action="sidebarTrigger"]')
+		let containerData = mainContainer.dataset
 
 		let dataItemName = 'sidebarHidden'
+
+		let trigger = $make.qs('button[data-action="sidebarTrigger"]')
 
 		trigger.addEventListener('click', e => {
 			if (!(dataItemName in containerData) || containerData[dataItemName] == '') {

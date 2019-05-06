@@ -21,8 +21,7 @@ html(lang='ru')
 		each CSS in [{ file: `fork-awesome/${LIBS.css.fa.v}/css/fork-awesome.min.css`, sri: LIBS.css.fa.sri }]
 			link(rel='stylesheet' href=`https://cdnjs.cloudflare.com/ajax/libs/${CSS.file}` integrity=`${CSS.sri}` crossorigin='anonymous')
 
-		each CSS in ['player-eientei']
-			link(rel='stylesheet' href=`${PATHS.css}/players/${CSS}.min.css?v=${VERSION}`)
+		link(rel='stylesheet' href=`${PATHS.css}/players/eientei.min.css?v=${VERSION}`)
 
 	body
 		video(crossorigin='anonymous' preload='none')
