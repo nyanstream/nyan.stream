@@ -223,8 +223,8 @@ let scssTubes = [
 	}, { verbose: false }),
 	sass.compile({ outputStyle: 'compressed' }),
 	cleanCSS(),
+	rename({ suffix: '.min' }),
 	bom(),
-	rename({suffix: '.min'}),
 	gulp.dest(paths.css.prod)
 ]
 
@@ -266,4 +266,4 @@ gulp.task('build:clean', () => tube([
 
 gulp.task('dev', gulp.parallel('liveReload', 'pug:dev', 'webmanifest:dev', 'js:assets:dev', 'js:service-worker:dev', 'js:get-vendors', 'scss:dev'))
 
-gulp.task('default', gulp.series('build', 'dist'))
+gulp.task('default', gulp.series('build:clean', 'build', 'dist'))

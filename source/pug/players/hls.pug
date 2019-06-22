@@ -1,0 +1,34 @@
+doctype html
+html(lang='ru')
+	head
+		include ../inc/vars.pug
+
+		meta(charset='utf-8')
+		title #{title} / Player / Clappr player (HLS)
+		link(rel='shortcut icon' href=`${URLs.favicon}`)
+
+		include ../inc/meta-viewport.pug
+		meta(name='robots' content='noindex, nofollow')
+
+		each URL in [PLAYERS.stream.server]
+			link(rel='dns-prefetch' href=`//${URL}`)
+
+		//-link(rel='stylesheet' href=`https://cdnjs.cloudflare.com/ajax/libs/video.js/${LIBS.css.videojs.v}/video-js.min.css` integrity=`${LIBS.css.videojs.sri}` crossorigin='anonymous')
+
+		link(rel='stylesheet' href=`${PATHS.css}/players/main.min.css?v=${VERSION}`)
+
+	body
+		//-video#video-js
+
+		div#jw-player
+
+		script(src=`https://cdn.jwplayer.com/libraries/mUil8Fjo.js` defer)
+
+		//-script(src=`https://cdnjs.cloudflare.com/ajax/libs/video.js/${LIBS.js.videojs.v}/video.min.js` integrity=`${LIBS.js.videojs.sri}` crossorigin='anonymous' defer)
+
+		script(src=`${PATHS.js}/players/main.min.js?v=${VERSION}` defer)
+
+		script.
+			document.addEventListener('DOMContentLoaded', () => {
+				playerInit({ server: '#{PLAYERS.stream.server}', type: 'hls', link: '#{PLAYERS.stream.hls}' })
+			})

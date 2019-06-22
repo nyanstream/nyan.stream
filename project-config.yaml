@@ -43,7 +43,8 @@ PLAYERS:
     hls: 'live/stream/index.m3u8'
 
   # e.g. player.twitch.tv/?channel=%player%
-  twitch: zdesneanime
+  twitch:
+    main: zdesneanime
 
   # e.g. mixer.com/embed/player/%player%
   mixer: 28469102

@@ -81,7 +81,9 @@ let $parser = {
 			yearNow = moment().year(),
 			dayNow = unixToDays(unixNow)
 
-		let nextAirs = data.filter(e => e['s'] > unixNow)
+		data['e'] = data.s + data.d
+
+		let nextAirs = data.filter(item => item.s > unixNow)
 
 		let createTableBodyRow = (firstData, secondData, _class = '') =>
 			tableBodyContent.appendChild($create.elem(

@@ -10,15 +10,10 @@ js:
       locale: sha256-qR4pdhxtx7dwKGJuYGoYjfnCQBPXv47hzLLU8jPLVUY= # ru.js
       timezone: sha256-Bkhsq/t3HC8InEULigDAPAIBTGgvRLnDmJEjuyBvA6U= # moment-timezone-with-data.min.js
 
-  # cdnjs.com/libraries/clappr (clappr.min.js)
-  # cdnjs.com/libraries/dash-shaka-playback (dash-shaka-playback.min.js)
-  clappr:
-    v:
-      core: 0.3.4
-      dash: '2.0.15-beta'
-    sri:
-      core: sha256-STSBsxfojeIpfm+PA9rPTLoaLjCzbD2+k8CeusR7AmM=
-      dash: sha256-rcfAl8V6yYsABbt6p4dTrmyvRYsnX2cjo3NxlP2xr3s=
+  # cdnjs.com/libraries/video.js (video.min.js)
+  videojs:
+    v: 7.5.4
+    sri: sha256-KPjK8mut8idL0mWQDjXBbgz/aGYhJ0nsLiwjnYVgcwQ=
 
   # cdnjs.com/libraries/ismobilejs (isMobile.min.js)
   isMobile:
@@ -45,6 +40,11 @@ css:
   fa:
     v: 1.0.4 # обновлять только если понадобятся новые иконки
     sri: sha256-tjfjH2pLkP1K9tzW8y7R1b/Ji7SNq8hgZoldn74zw1o=
+
+  # cdnjs.com/libraries/video.js (video-js.min.css)
+  videojs:
+    v: 7.5.4
+    sri: sha256-TJKQPVYC8cFBnpxkfw2wItQl76qlgNmEnpthMssQIPY=
 
   # cdnjs.com/libraries/dialog-polyfill (dialog-polyfill.min.css)
   dialog_polyfill:
