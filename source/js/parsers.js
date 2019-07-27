@@ -22,13 +22,17 @@ let clearNode = _node => {
  */
 
 let cloneNode = (fromNode, toNode) => {
+	let fromNodeTmp = fromNode.cloneNode(true)
+
 	let toNodeTmp = toNode.cloneNode(true)
 
-	Array.from(toNodeTmp.attributes).forEach(attr =>
-		toNodeTmp.removeAttribute(attr.name)
+	Array.from([fromNodeTmp, toNodeTmp]).forEach(node =>
+		Array.from(node.attributes).forEach(attr =>
+			node.removeAttribute(attr.name)
+		)
 	)
 
-	if (!fromNode.isEqualNode(toNodeTmp)) {
+	if (!fromNodeTmp.isEqualNode(toNodeTmp)) {
 		clearNode(toNode)
 
 		while (fromNode.firstChild) {
@@ -38,36 +42,49 @@ let cloneNode = (fromNode, toNode) => {
 		fromNode.remove()
 	}
 
-	toNodeTmp.remove()
+	Array.from([fromNodeTmp, toNodeTmp]).forEach(node =>
+		node.remove()
+	)
 }
 
 let $parser = {
 	schedule: ({ data = [], options = {}, fetchFailed = false, errorData = false }) => {
 		if (fetchFailed) { console.warn(errorData); return }
 
-		// TODO: переделать с таблицы на дивы
-
 		let disabledSections = ('disabledSections' in options)
 			? options.disabledSections
 			: []
 
-		let streamSсhed = $make.qs('.schedule')
+		let schedClassName = 'schedule'
+
+		let schedItemClassName = 'sched-item'
+
+		let streamSсhed = $make.qs('.' + schedClassName)
+
+		let schedItems = $create.elem('div')
+		let schedItemsContent = $create.elem('div')
+
+		Array.from([schedItems, schedItemsContent]).forEach(list => {
+			list.classList.add(`${schedClassName}__items`)
+			list.setAttribute('aria-role', 'list')
+		})
 
 		if (!streamSсhed.hasChildNodes()) {
-			let table = $create.elem('table')
-
-			table.appendChild($create.elem('thead'))
-			table.appendChild($create.elem('tbody'))
-
-			streamSсhed.appendChild(table)
+			streamSсhed.appendChild($create.elem('div', '', `${schedClassName}__head`))
+			streamSсhed.appendChild(schedItems)
 		}
 
-		let tableHead = $make.qsf('table thead', streamSсhed)
-			tableHead.textContent = ''
+		let schedHead = $make.qsf(
+			'.' + `${schedClassName}__head`,
+			streamSсhed
+		)
 
-		let tableBody = $make.qsf('table tbody', streamSсhed)
+		schedHead.textContent = ''
 
-		let tableBodyContent = $create.elem('tbody')
+		schedItems = $make.qsf(
+			'.' + schedItems.classList.value,
+			streamSсhed
+		)
 
 		/*
 		 * Ранее здесь вместо дня со времени начала эпохи Unix вычислялся номер дня в году.
@@ -76,134 +93,185 @@ let $parser = {
 
 		let unixToDays = ts => Math.floor(ts / 60 / 60 / 24)
 
-		let
-			unixNow = moment().unix(),
-			yearNow = moment().year(),
-			dayNow = unixToDays(unixNow)
-
-		data['e'] = data.s + data.d
+		let unixNow = moment().unix()
+		let yearNow = moment().year()
+		let dayNow = unixToDays(unixNow)
 
 		let nextAirs = data.filter(item => item.s > unixNow)
 
-		let createTableBodyRow = (firstData, secondData, _class = '') =>
-			tableBodyContent.appendChild($create.elem(
-				'tr',
-				`<td>${firstData}</td><td>${secondData}</td>`,
-				_class
-			))
+		//let getDuration = d => moment.duration({ seconds: d }).humanize()
 
-		data.forEach(item => {
-			if ('secret' in item && item.secret == true) { return } // пропуск секретных элементов
+		let getDuration = d => {
+			let duration = moment.duration({ seconds: d })
 
-			/* TODO: сделать нормальную поддержку item.secret (с временем окончания "секретности", например) */
+			let hours = duration.asHours()
 
-			let
-				itemStartTime =  item.s
-				itemEndTime =    item.e
+			let text = (hours <= 21)
+				? duration.humanize()
+				: 'около дня'
 
-			let
-				itemStartTimeYear = moment.unix(itemStartTime).year(),
-				itemStartTimeDay = unixToDays(itemStartTime)
+			return (hours < 24) ? text : 'больше дня'
+		}
 
-			let newSсhedData = `${yearNow != itemStartTimeYear ? itemStartTimeYear + '<br>' : ''}${moment.unix(itemStartTime).format('D MMMM')}<br>${moment.unix(itemStartTime).format('HH:mm')} &ndash; ${moment.unix(itemEndTime).format('HH:mm')}`
+		let createSchedItem = ({ item, prevItem }) => {
+			if ('secret' in item && item.secret == true) { return }
 
-			let itemTitle = ('link' in item && item.link != '')
-				? $create.link(item.link, item.title, '', ['e', 'html'])
-				: $make.safe(item.title)
+			let itemStartTime = item.s, itemDuration = item.d
 
-			let _metaInfoPlayer = getInfoFromMeta('backup-player')
+			if (!('e' in item)) { item['e'] = itemStartTime + itemDuration }
 
-			if (_metaInfoPlayer && _metaInfoPlayer != '') {
-				let backupPlayerLink = `?${STRINGS.playerGETparam}=` + encodeURIComponent(_metaInfoPlayer)
+			let itemEndTime = item.e
 
-				itemTitle += ('backup' in item && item.backup == true)
-					? ` [<a href="${backupPlayerLink}">${getString('backup')}</a>]`
-					: ''
-			}
+			let itemStartTime_m = moment.unix(itemStartTime)
+
+			let itemStartTimeDay = unixToDays(itemStartTime)
+
+			let itemStatus = ''
 
 			if (
-				!disabledSections.includes('tooOld') &&
 				(itemStartTimeDay - dayNow) < -1
 			) { // если (день даты старта item минус текущий день) меньше -1
 				return
 			} else if (
-				!disabledSections.includes('current') &&
 				itemStartTime < unixNow &&
 				unixNow < itemEndTime
 			) { // если (таймштамп времени начала item меньше, чем текущий Unix-таймштамп) И если (текущий Unix-таймштамп меньше, чем время окончания item)
-				createTableBodyRow(
-					newSсhedData,
-					`<b>${getString('now')(moment.unix(itemEndTime).toNow(true))}:</b><br>${itemTitle}`,
-					'air--current'
-				)
+				itemStatus = 'current'
 			} else if (
-				!disabledSections.includes('next') &&
 				itemStartTime > unixNow &&
 				itemStartTime == nextAirs[0]['s']
 			) { // если (таймштамп времени начала item больше, чем текущий Unix-таймштамп) И если (таймштамп времени начала item равен времени начала первого item из массива будущих эфиров)
-				createTableBodyRow(
-					newSсhedData,
-					`<b>${getString('within')} ${moment.unix(itemStartTime).fromNow()}:</b><br>${itemTitle}`,
-					'air--next'
-				)
+				itemStatus = 'next'
 			} else if (
-				!disabledSections.includes('finished') &&
 				itemStartTime < unixNow
 			) { // если (таймштамп времени начала item меньше, чем текущий Unix-таймштамп)
-				createTableBodyRow(
-					newSсhedData,
-					itemTitle,
-					'air--finished'
-				)
+				itemStatus = 'finished'
 			} else if (
-				!disabledSections.includes('notToday') &&
 				itemStartTimeDay > dayNow
 			) { // если (день даты старта item больше, чем текущий день)
-				createTableBodyRow(
-					newSсhedData,
-					itemTitle,
-					'air--notToday'
-				)
-			} else if (
-				!disabledSections.includes('normal')
-			) {
-				createTableBodyRow(
-					newSсhedData,
-					itemTitle
-				)
+				itemStatus = 'notToday'
+			} else { void(0) }
+
+			let itemStartTimeYear = itemStartTime_m.year()
+
+			let schedItem = $create.elem('div', '', schedItemClassName)
+
+			if (itemStatus != '') {
+				schedItem.dataset.status = itemStatus
 			}
-		})
+
+			schedItem.setAttribute('aria-role', 'listitem')
+
+			let scheditemTitle = $create.elem(
+				'div', item.title,
+				`${schedItemClassName}__title`
+			)
+
+			schedItem.appendChild(scheditemTitle)
+
+			let schedItemData = $create.elem(
+				'div', '',
+				`${schedItemClassName}__data`
+			)
+
+			schedItem.appendChild(schedItemData)
+
+			let itemDataStart = $create.elem(
+				'time', `${itemStartTime_m.format(`D MMMM${yearNow !== itemStartTimeYear ? ' Y' : ''}, HH:mm`)}`,
+				`${schedItemClassName}__startTime`
+			)
+
+			itemDataStart.dateTime = itemStartTime_m.format()
+
+			schedItemData.appendChild(itemDataStart)
+
+			let itemDataDuration = $create.elem(
+				'div', '',
+				`${schedItemClassName}__duration`
+			)
+
+			// для того, чтобы корректно работало ::first-letter
+			itemDataDuration.appendChild($create.elem(
+				'span', 'Длится ' + getDuration(itemDuration)
+			))
+
+			itemDataDuration.setAttribute('title', `${getString('end_time')}: ${moment.unix(itemEndTime).format('D MMMM, HH:mm')}`)
+
+			schedItemData.appendChild(itemDataDuration)
+
+			let itemDataPhrase = $create.elem(
+				'div', '',
+				`${schedItemClassName}__phrase`
+			)
+
+			let itemDataPhraseSpan = $create.elem('span')
+
+			let isCollision = prevItem
+				? (prevItem.e == item.s)
+				: false
+
+			switch (itemStatus) {
+				case 'next':
+					itemDataPhraseSpan.textContent = isCollision ? getString('next') : itemStartTime_m.fromNow()
+					break;
+
+				case 'current':
+					itemDataPhraseSpan.textContent = getString('now')(moment.unix(itemEndTime).toNow(true))
+					break;
+			}
+
+			if (itemDataPhraseSpan.textContent.trim() !== '') {
+				itemDataPhrase.appendChild(itemDataPhraseSpan)
+
+				schedItemData.appendChild(itemDataPhrase)
+			}
+
+			if ('link' in item && item.link !== '') {
+				let itemDataLinkParent = $create.elem(
+					'div', '',
+					`${schedItemClassName}__link`
+				)
+
+				let itemDataLink = $create.link(
+					item.link, getString('link'), '', ['e']
+				)
+
+				itemDataLinkParent.appendChild(itemDataLink)
+
+				schedItemData.appendChild(itemDataLinkParent)
+			}
+
+			return schedItemsContent.appendChild(schedItem)
+		}
+
+		data.forEach((item, i) => createSchedItem({ item: item, prevItem: data[i-1] ? data[i-1] : null }))
 
 		if (!disabledSections.includes('latestCheck')) {
-			tableHead.appendChild($create.elem(
-				'tr',
-				`<td colspan="2">${getString('latest_check')}: ${moment().format('D MMMM, HH:mm:ss')}</td>`
+			schedHead.appendChild($create.elem(
+				'span',
+				`${getString('latest_check')}: ${moment().format('D MMMM, HH:mm:ss')}`
 			))
 		}
 
 		if (
-			!tableBodyContent.hasChildNodes() &&
+			!schedItemsContent.hasChildNodes() &&
 			!disabledSections.includes('emptySchedule')
 		) {
-			tableBodyContent.appendChild($create.elem(
-				'tr',
-				`<td colspan="2">${getString('empty_schedule')} ¯\\_(ツ)_/¯</td>`
+			let emptyNodeContent = $create.elem(
+				'div', '',
+				`${schedItemClassName}__empty`
+			)
+
+			emptyNodeContent.appendChild($create.text(`${getString('empty_schedule')} `))
+
+			emptyNodeContent.appendChild($create.elem(
+				'span', '¯\\_(ツ)_/¯'
 			))
+
+			schedItemsContent.appendChild(emptyNodeContent)
 		}
 
-		if (
-			disabledSections.includes('latestCheck') &&
-			disabledSections.includes('emptySchedule') &&
-			!tableBodyContent.hasChildNodes()
-		) {
-			streamSсhed.dataset.tableIsEmpty = ''
-		} else {
-			if ('tableIsEmpty' in streamSсhed.dataset) {
-				delete streamSсhed.dataset.tableIsEmpty
-			}
-		}
-
-		cloneNode(tableBodyContent, tableBody)
+		cloneNode(schedItemsContent, schedItems)
 	},
 
 	vkNews: ({ data = {}, fetchFailed = false, errorData = false }) => {

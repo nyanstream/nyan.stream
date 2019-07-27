@@ -8,8 +8,6 @@
 	--prime-color-5d: #{darken($primeColor, 5%)};
 
 	--scroll-color: #828282;
-
-	--footer-height: 35px;
 }
 
 /*
@@ -19,20 +17,6 @@
 body {
 	.chat {
 		font-family: Roboto, Arial, sans-serif !important;
-	}
-
-	&:not(.has-nick) {
-		.chat {
-			&Main {
-				bottom: var(--footer-height);
-			}
-
-			&Footer {
-				& {
-					height: var(--footer-height);
-				}
-			}
-		}
 	}
 }
 
@@ -71,7 +55,7 @@ a[href*='?cat=vip'],
 	border: 0;
 
 	&Main, &Footer {
-		background-color: auto;
+		background-color: transparent;
 		background-image: none;
 	}
 
@@ -133,10 +117,12 @@ a[href*='?cat=vip'],
 			border: 0 !important;
 
 			font-weight: normal;
-			font-size: 16px;
+			font-size: 1.3em;
 			color: #fff;
 
 			outline: 0;
+
+			cursor: pointer;
 
 			&:hover {
 				background-color: var(--prime-color-5d) !important;
@@ -322,10 +308,6 @@ a[href*='?cat=vip'],
 	.chatPopupMenu {
 		&Div1, &Div2 {
 			border: 0;
-		}
-
-		&Div1 {
-
 		}
 
 		&Div2 {

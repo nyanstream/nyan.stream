@@ -9,7 +9,7 @@
  * Функция, возвращающая значение запрашиваемой строки из переменной trStrings
  * * *
  * У некоторых объектов, являющихся своеобразными "шаблонами" (например now), возвращается функция. В этом случае следует делать вызов следующим образом:
- * getString('now')('час') -> "Сейчас (ещё час)"
+ * getString('now')('час') -> "ещё час"
  *
  * TODO: найти время и сгруппировать всё
  */
@@ -145,13 +145,27 @@ let getString = s => {
 			en: 'Settings',
 		},
 
-		within: {
+		next: {
 			ru: 'Далее',
-			en: 'Starts',
+			en: 'Next',
 		},
 		now: {
-			ru: s => `Сейчас (ещё ${s})`,
-			en: s => `Now (${s} left)`,
+			ru: s => `ещё ${s}`,
+			en: s => `${s} left`,
+		},
+
+		about_day: {
+			ru: 'около дня',
+			en: 'about a day',
+		},
+		more_than_day: {
+			ru: 'больше дня',
+			en: 'more than a day',
+		},
+
+		end_time: {
+			ru: 'Время окончания',
+			en: 'End time',
 		},
 
 		play: {
@@ -169,11 +183,10 @@ let getString = s => {
 			ja: 'チャット',
 		},
 
-		backup: {
-			ru: 'на бэкапе',
-			en: 'on a backup stream',
+		link: {
+			ru: 'Ссылка',
+			en: 'Link',
 		},
-
 		links: {
 			ru: 'Ссылки',
 			en: 'Links',
@@ -300,7 +313,7 @@ let getString = s => {
 let l10n = () => {
 	/*
 	 * Первая буква в строке становится заглавной
-	 * Отсюда: https://stackoverflow.com/a/1026087
+	 * credits: https://stackoverflow.com/a/1026087
 	 */
 
 	let capitalize = s => s.charAt(0).toUpperCase() + s.slice(1)

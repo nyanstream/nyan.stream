@@ -17,3 +17,5 @@ html(lang='ru')
 
 	body
 		iframe.player(src=`https://goodgame.ru/player?${PLAYERS.gg}#autoplay` sandbox='allow-same-origin allow-scripts' allowfullscreen)
+
+		script(src=`${PATHS.js}/special/ifec.min.js?v=${VERSION}` defer)
