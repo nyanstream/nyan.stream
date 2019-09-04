@@ -2,7 +2,7 @@
 	"name": "nyan.stream",
 	"description": "Source code of NYAN.STREAM project.",
 	"private": true,
-	"version": "2.6.6",
+	"version": "2.6.7",
 	"author": "Dmitry <dmitry@cojam.ru> (https://e965.ru)",
 	"repository": "github:nyanstream/nyan.stream",
 	"license": "MIT",
@@ -36,6 +36,6 @@
 		"gulp-watch": "5.0.1",
 		"gulp-watch-sass": "1.4.1",
 		"js-yaml": "3.13.1",
-		"terser": "4.1.2"
+		"terser": "4.2.1"
 	}
 }

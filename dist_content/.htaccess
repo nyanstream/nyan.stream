@@ -40,10 +40,9 @@ Header set Content-Security-Policy "default-src 'self'; \
  style-src 'self' 'unsafe-inline' data: https://cdnjs.cloudflare.com https://fonts.googleapis.com; \
  font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; \
  img-src 'self' data: https://aw-cdn.blyat.science https://www.google-analytics.com https://mc.yandex.ru https://images.weserv.nl; \
- media-src 'self' blob: https://nyan-stream.blyat.science; \
- connect-src 'self' https://nyan-api.blyat.science https://aw-api.blyat.science https://mc.yandex.ru; \
- script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://mc.yandex.ru https://cdnjs.cloudflare.com; \
- plugin-types application/x-shockwave-flash"
+ media-src 'self' blob: https://nyan-video.blyat.science; \
+ connect-src 'self' https://nyan-api.blyat.science https://r-a-d.io https://mc.yandex.ru; \
+ script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://mc.yandex.ru https://cdnjs.cloudflare.com"
 </IfModule>
 
 <FilesMatch 'service-worker.min.js'>

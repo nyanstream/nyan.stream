@@ -2,7 +2,7 @@
 
 moment.tz.setDefault('Europe/Moscow')
 
-DOMAINS.radio = 'aw-api.blyat.science'
+DOMAINS.radio = 'r-a-d.io'
 
 let dataContainer = $make.qs('.data')
 
@@ -60,8 +60,8 @@ let $embed = {
 		dataContainer.appendChild($create.elem('p', `Далее будет:<br>${moment.unix(nextAirs[0]['s']).format('HH:mm')} &ndash; ${nextAirs[0]['title']}` ))
 	}}),
 
-	song: () => doFetch({ fetchURL: `https://${DOMAINS.radio}/mr24-api-proxy.php`, handler: ({ data = {} }) => {
-		let song = data['song']
+	song: () => doFetch({ fetchURL: `https://${DOMAINS.radio}/api`, handler: ({ data = {} }) => {
+		let song = data.main.np
 
 		dataContainer.textContent = ''
 		dataContainer.appendChild($create.elem('p', song.replace(' - ', ' &ndash; ')))

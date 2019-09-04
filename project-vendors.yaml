@@ -4,16 +4,16 @@ js:
   moment:
     v:
       same: 2.24.0
-      timezone: 0.5.25
+      timezone: 0.5.26
     sri:
       same: sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ= # moment.min.js
       locale: sha256-qR4pdhxtx7dwKGJuYGoYjfnCQBPXv47hzLLU8jPLVUY= # ru.js
-      timezone: sha256-Bkhsq/t3HC8InEULigDAPAIBTGgvRLnDmJEjuyBvA6U= # moment-timezone-with-data.min.js
+      timezone: sha256-6EFCRhQs5e10gzbTAKzcFFWcpDGNAzJjkQR3i1lvqYE= # moment-timezone-with-data.min.js
 
   # cdnjs.com/libraries/video.js (video.min.js)
   videojs:
-    v: 7.5.4
-    sri: sha256-KPjK8mut8idL0mWQDjXBbgz/aGYhJ0nsLiwjnYVgcwQ=
+    v: 7.6.4
+    sri: sha256-CbZ6GITxz2h2ggvy50RJdktyH0MgU5BXbQKfndYdbPI=
 
   # cdnjs.com/libraries/ismobilejs (isMobile.min.js)
   isMobile:
@@ -43,8 +43,8 @@ css:
 
   # cdnjs.com/libraries/video.js (video-js.min.css)
   videojs:
-    v: 7.5.4
-    sri: sha256-TJKQPVYC8cFBnpxkfw2wItQl76qlgNmEnpthMssQIPY=
+    v: 7.6.4
+    sri: sha256-kflKPH4F0cGv0BJg6I6+pb5nIO01FMeoK7qWoz1NayE=
 
   # cdnjs.com/libraries/dialog-polyfill (dialog-polyfill.min.css)
   dialog_polyfill:

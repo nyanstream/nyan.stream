@@ -167,6 +167,10 @@ let getString = s => {
 			ru: 'Время окончания',
 			en: 'End time',
 		},
+		duration_is: {
+			ru: 'Длится',
+			en: 'Duration:',
+		},
 
 		play: {
 			ru: 'Играть',

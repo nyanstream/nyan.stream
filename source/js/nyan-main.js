@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			let formValues = {
 				player:  'player_selector',
 				l10n:    'l10n_selector',
-				css:     'custom_css'
+				css:     'custom_css',
 			}
 
 			let formValuesKeys = Object.keys(formValues)

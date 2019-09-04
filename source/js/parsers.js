@@ -108,9 +108,9 @@ let $parser = {
 
 			let text = (hours <= 21)
 				? duration.humanize()
-				: 'около дня'
+				: getString('about_day')
 
-			return (hours < 24) ? text : 'больше дня'
+			return (hours < 24) ? text : getString('more_than_day')
 		}
 
 		let createSchedItem = ({ item, prevItem }) => {
@@ -149,7 +149,7 @@ let $parser = {
 			} else if (
 				itemStartTimeDay > dayNow
 			) { // если (день даты старта item больше, чем текущий день)
-				itemStatus = 'notToday'
+				itemStatus = 'not-today'
 			} else { void(0) }
 
 			let itemStartTimeYear = itemStartTime_m.year()
@@ -183,6 +183,8 @@ let $parser = {
 
 			itemDataStart.dateTime = itemStartTime_m.format()
 
+			itemDataStart.setAttribute('datetime', itemStartTime_m.format())
+
 			schedItemData.appendChild(itemDataStart)
 
 			let itemDataDuration = $create.elem(
@@ -192,10 +194,13 @@ let $parser = {
 
 			// для того, чтобы корректно работало ::first-letter
 			itemDataDuration.appendChild($create.elem(
-				'span', 'Длится ' + getDuration(itemDuration)
+				'span', getString('duration_is') + ' ' + getDuration(itemDuration)
 			))
 
-			itemDataDuration.setAttribute('title', `${getString('end_time')}: ${moment.unix(itemEndTime).format('D MMMM, HH:mm')}`)
+			itemDataDuration.setAttribute(
+				'title',
+				`${getString('end_time')}: ${moment.unix(itemEndTime).format('D MMMM, HH:mm')}`
+			)
 
 			schedItemData.appendChild(itemDataDuration)
 
@@ -441,7 +446,6 @@ let $parser = {
 			notiItems.push(notiID)
 			$storage.set(_storageNotiItemName, JSON.stringify(notiItems))
 
-			notiElem.style.display = 'none'
 			delete notiElem.dataset.notiIsEnabled
 		}
 	}
