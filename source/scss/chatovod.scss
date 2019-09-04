@@ -60,8 +60,23 @@ a[href*='?cat=vip'],
 	}
 
 	&Tabs {
+		&Left {
+			width: 10px;
+		}
+
+		ul {
+			left: 10px;
+		}
+
 		.appTab {
 			display: none;
+		}
+
+		& > ul > li.chatTab {
+			&.chatTabActive > a,
+			& > a:hover, & > a:active {
+				background-color: var(--prime-color-10d) !important;
+			}
 		}
 	}
 
@@ -72,6 +87,16 @@ a[href*='?cat=vip'],
 	&PopupMenuDiv1,
 	&PopupMenuDiv2 {
 		background-color: #fff;
+	}
+
+	&MenuItemWithSeparator {
+		a[href="#"] {
+			padding-right: 13px;
+
+			.menu_profile_title {
+				font-size: 0;
+			}
+		}
 	}
 
 	&People ul.chatPeopleList li.hover {
@@ -150,10 +175,12 @@ a[href*='?cat=vip'],
 		&TextPanel {
 			top: 32px !important;
 			right: 95px !important;
+			left: 10px !important;
 		}
 
 		&LinksPanel {
 			top: 10px !important;
+			left: 10px !important;
 
 			.chatLinkGold,
 			.chatLinkProfile,
@@ -187,6 +214,8 @@ a[href*='?cat=vip'],
 	}
 
 	&Message {
+		padding-left: 10px;
+
 		&ToMe .chatToUser {
 			color: #fff !important;
 		}
@@ -217,15 +246,27 @@ a[href*='?cat=vip'],
 			cursor: default;
 		}
 
-		&MenuItems {
-			& > ul > li > a {
-				&[class*='Photos'], &[class*='Gift'] {
-					display: none;
+		&Menu {
+			padding-top: 5px;
+
+			&Items {
+				margin-left: 0;
+				border-left: 2px solid var(--prime-color-5d);
+				padding-left: 5px;
+
+				& > ul > li > a {
+					&[class*='Photos'], &[class*='Gift'] {
+						display: none;
+					}
 				}
 			}
 		}
 
 		&From { font-weight: 500 }
+
+		&Avatar {
+			display: none;
+		}
 	}
 
 	&UserFrom,

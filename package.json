@@ -2,13 +2,13 @@
 	"name": "nyan.stream",
 	"description": "Source code of NYAN.STREAM project.",
 	"private": true,
-	"version": "2.6.7",
+	"version": "2.6.8",
 	"author": "Dmitry <dmitry@cojam.ru> (https://e965.ru)",
 	"repository": "github:nyanstream/nyan.stream",
 	"license": "MIT",
 	"engines": {
-		"node": ">= 12.6.0",
-		"npm": ">= 6.9.0"
+		"node": ">= 12.10.0",
+		"npm": ">= 6.10.3"
 	},
 	"scripts": {
 		"build": "gulp build",
