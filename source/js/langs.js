@@ -187,6 +187,11 @@ let getString = s => {
 			ja: 'チャット',
 		},
 
+		main_player: {
+			ru: 'Главный плеер',
+			en: 'Main player',
+		},
+
 		link: {
 			ru: 'Ссылка',
 			en: 'Link',
@@ -209,9 +214,9 @@ let getString = s => {
 			ru: 'Профиль на Trakt.tv',
 			en: 'Trakt.tv profile'
 		},
-		link_rawg: {
-			ru: 'Профиль на RAWG',
-			en: 'RAWG profile'
+		link_agru: {
+			ru: 'Профиль на AG',
+			en: 'AG.ru profile'
 		},
 
 		made_with: {

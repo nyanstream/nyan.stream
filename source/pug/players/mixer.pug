@@ -10,12 +10,12 @@ html(lang='ru')
 		include ../inc/meta-viewport.pug
 		meta(name='robots' content='noindex, nofollow')
 
-		each URL in ['connect.facebook.net', 'www.google-analytics.com', 'app.getsentry.com', 'web.vortex.data.microsoft.com', 'uploads.mixer.com']
+		each URL in ['static.mixer.com', 'videocdn.mixer.com', 'web.vortex.data.microsoft.com', 'browser.events.data.microsoft.com', 'login.live.com', 'connect.facebook.net']
 			link(rel='dns-prefetch' href=`//${URL}`)
 
 		link(rel='stylesheet' href=`${PATHS.css}/players/iframe.min.css?v=${VERSION}`)
 
 	body
-		iframe.player(src=`https://mixer.com/embed/player/${PLAYERS.mixer}` allowfullscreen)
+		iframe.player(src=`https://mixer.com/embed/player/${PLAYERS.mixer}?disableLinks=true&hideChannel=true` allowfullscreen)
 
 		script(src=`${PATHS.js}/special/ifec.min.js?v=${VERSION}` defer)

@@ -22,7 +22,7 @@ const STRINGS = {
 	notiItem: 'nyan_noti',
 
 	// GET-параметр, который позволяет выбрать плеер через URL (напр. site.com/?b=twitch)
-	playerGETparam: 'stream',
+	playerGETparam: 'player',
 
 	// Название плеера по-умолчанию
 	defaultPlayerName: 'twitch',
