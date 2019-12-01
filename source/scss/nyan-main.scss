@@ -10,6 +10,12 @@
 
 body {
 	@import 'inc/parts/main/themes';
+
+	&[data-theme='moon'] {
+		button[data-action='moonTrigger'] > i.fa::before {
+			content: '\f185';
+		}
+	}
 }
 
 .container {
@@ -35,6 +41,10 @@ body {
 			}
 
 			.sidebar { display: none }
+		}
+
+		button[data-action='moonTrigger'] > i.fa::before {
+			content: '\f328';
 		}
 
 		&[data-error] {

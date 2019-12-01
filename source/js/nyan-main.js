@@ -240,22 +240,31 @@ document.addEventListener('DOMContentLoaded', () => {
 	 */
 
 	void (() => {
-		let
-		 	bodyData = body.dataset,
-			trigger = $make.qs('.sidebar button[data-tab="chat"]')
+		let bodyData = body.dataset
+
+		let trigger = $make.qs('button[data-action="moonTrigger"]')
+
+		let modeName = 'moon'
 
 		let
-			storageItemName = 'nyan_grayTheme',
+			storageItemName = 'nyan_moonMode',
 			dataItemName = 'theme'
 
+		let storageItemName_old = 'nyan_grayTheme'
+
+		if ($storage.get(storageItemName_old) == 'true') {
+			$storage.rm(storageItemName_old)
+			$storage.set(storageItemName, 'true')
+		}
+
 		if ($storage.get(storageItemName) == 'true') {
-			bodyData.theme = 'gray'
+			bodyData.theme = modeName
 		}
 
 		if (trigger) {
-			trigger.addEventListener('dblclick', () => {
+			trigger.addEventListener('click', () => {
 				if (!(dataItemName in bodyData) || bodyData[dataItemName] == '') {
-					bodyData[dataItemName] = 'gray'
+					bodyData[dataItemName] = modeName
 					$storage.set(storageItemName, 'true')
 				} else {
 					delete bodyData[dataItemName]

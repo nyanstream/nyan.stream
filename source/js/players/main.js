@@ -3,30 +3,34 @@
 let playerInit = ({ server, type, link }) => {
 	type = type.toLowerCase()
 
-	// console.log(jwplayer())
+	const video = document.querySelector('.video');
 
-	jwplayer('jw-player').setup({
-		file: `https://${server}/${link}`,
-		width: '100%', height: '100%',
-		image: '/assets/img/offline.png',
-		autostart: true
+	const source = `http://${server}/${link}`
+
+	const dash = dashjs.MediaPlayer().create()
+
+	//dash.getDebug().setLogToBrowserConsole(false)
+
+	dash.initialize(video, source, true)
+
+	new Plyr(video, {
+		controls: ['play', 'mute', 'volume', 'pip', 'airplay', 'fullscreen'],
+		autoplay: true,
+		autopause: false,
+		resetOnEnd: true,
+		storage: {
+			key: 'nyan_plyr'
+		}
 	})
 
-	// let player = videojs('video-js', {
-	// 	//width: '100%', height: '100%',
-	// 	poster: '/assets/img/offline.png',
-	// 	html5: {
-	// 		hls: {
-	// 			withCredentials: true
-	// 		}
-	// 	}
-	// })
+	// if (!Hls.isSupported()) {
+	// 	video.src = source
+	// } else {
+	// 	const hls = new Hls()
 
-	// player.src({
-	// 	src: `https://${server}/${link}`,
-	// 	overrideNative: true,
-	// 	autoplay: 'any',
-	// 	controls: true
-	// 	//liveui: true
-	// })
+	// 	hls.loadSource(source)
+	// 	hls.attachMedia(video)
+
+	// 	window.hls = hls
+	// }
 }

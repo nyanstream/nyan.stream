@@ -25,7 +25,7 @@ html(lang='ru')
 		each CSS in [{ file: `dialog-polyfill/${LIBS.css.dialog_polyfill.v}/dialog-polyfill.min`, sri: LIBS.css.dialog_polyfill.sri }, { file: `fork-awesome/${LIBS.css.fa.v}/css/fork-awesome.min`, sri: LIBS.css.fa.sri }]
 			link(rel='stylesheet' href=`https://cdnjs.cloudflare.com/ajax/libs/${CSS.file}.css` integrity=`${CSS.sri}` crossorigin='anonymous')
 
-		each CSS in ['nyan-every', 'nyan-main']
+		each CSS in ['nyan-every', 'nyan-main', 'special/ny-2019']
 			link(rel='stylesheet' href=`${PATHS.css}/${CSS}.min.css?v=${VERSION}`)
 
 		style.user-styles
@@ -36,11 +36,16 @@ html(lang='ru')
 		div.container.container--main(data-error='no-js' data-content)
 			header.header
 				ul.menu.menu--left
-					include inc/parts/container--slider__btn.pug
+					include inc/parts/container--slider/slider__btn.pug
+
+					li
+						button.menu__elem(data-lang-title='moon_trigger' data-action='moonTrigger')
+							i.fa(aria-hidden='true')
 
 				+headerBrand
 
 				ul.menu.menu--right
+
 					li
 						button.menu__elem(data-lang-title='options_trigger' data-action='optionsTrigger')
 							i.fa.fa-cog(aria-hidden='true')
@@ -60,14 +65,7 @@ html(lang='ru')
 			div.error-box
 				include inc/nojs-text.pug
 
-		div.container.container--slider
-			header.header
-				include inc/parts/container--slider__menu.pug
-
-			div.slider-content
-				include inc/parts/container--slider__nav.pug
-
-				include inc/parts/container--slider__footer.pug
+		include inc/parts/container--slider/slider.pug
 
 		include inc/parts/main/dialog__options.pug
 

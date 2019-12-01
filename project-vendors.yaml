@@ -12,8 +12,8 @@ js:
 
   # cdnjs.com/libraries/video.js (video.min.js)
   videojs:
-    v: 7.6.4
-    sri: sha256-CbZ6GITxz2h2ggvy50RJdktyH0MgU5BXbQKfndYdbPI=
+    v: 7.6.5
+    sri: sha256-DDYBI87lVdSZOudgc6hh30NBPNzbLZqxBOwwmicNeB0=
 
   # cdnjs.com/libraries/ismobilejs (isMobile.min.js)
   isMobile:
@@ -38,12 +38,12 @@ js:
 css:
   # cdnjs.com/libraries/fork-awesome (fork-awesome.min.css)
   fa:
-    v: 1.0.4 # обновлять только если понадобятся новые иконки
-    sri: sha256-tjfjH2pLkP1K9tzW8y7R1b/Ji7SNq8hgZoldn74zw1o=
+    v: 1.1.7 # обновлять только если понадобятся новые иконки
+    sri: sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=
 
   # cdnjs.com/libraries/video.js (video-js.min.css)
   videojs:
-    v: 7.6.4
+    v: 7.6.5
     sri: sha256-kflKPH4F0cGv0BJg6I6+pb5nIO01FMeoK7qWoz1NayE=
 
   # cdnjs.com/libraries/dialog-polyfill (dialog-polyfill.min.css)

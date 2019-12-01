@@ -144,6 +144,10 @@ let getString = s => {
 			ru: 'Открыть настройки',
 			en: 'Settings',
 		},
+		moon_trigger: {
+			ru: 'Дневной/ночной режим',
+			en: 'Day/night mode',
+		},
 
 		next: {
 			ru: 'Далее',
