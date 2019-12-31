@@ -8,3 +8,17 @@ html, body {
 	background-color: transparent;
 	overflow: hidden;
 }
+
+.data {
+	&__time {
+		&::before {
+			content: 'Время у стримера: ';
+		}
+	}
+
+	&__song {
+		&::before {
+			content: '♫ ';
+		}
+	}
+}

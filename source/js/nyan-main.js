@@ -99,6 +99,7 @@ let $init = {
 		switch (playerName) {
 			case 'main':
 			case 'twitch':
+			case 'twitch-aw':
 			case 'gg':
 			case 'mixer':
 				playerURL = playerName; break

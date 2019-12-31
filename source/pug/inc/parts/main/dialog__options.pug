@@ -9,13 +9,14 @@ dialog.dialog.dialog--options
 					select(id='player_selector')
 						optgroup(label='Stable')
 							option(value='twitch') Twitch
+							option(value='twitch-aw') Asian Wave
 							option(value='gg') GoodGame
 
 						optgroup(label='Beta')
 							option(value='mixer') Mixer
 
-						//- optgroup(label='Alpha')
-						//- 	option(value='main' data-lang='main_player')
+						optgroup(label='Alpha' hidden)
+							option(value='main' data-lang='main_player')
 
 			tr
 				td #[label(for='l10n_selector' data-lang='l10n_selector')]

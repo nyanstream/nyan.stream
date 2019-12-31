@@ -53,7 +53,7 @@ body {
 
 		.slider-content {
 			display: grid;
-			grid-template-rows: 1fr 100px;
+			grid-template-rows: 1fr min-content;
 			overflow-y: auto;
 		}
 

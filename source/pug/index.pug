@@ -18,8 +18,7 @@ html(lang='ru')
 			meta(name=`${verif.type}` content=`${verif.code}`)
 
 		//- { name: 'default-player', content: 'gg' } - смена загружаемого по умолчанию плеера
-		//- значение из backup-player используется в parsers.js
-		each nyanMeta in [{ name: 'players-path', content: `${PATHS.players}` }, { name: 'default-player', content: 'twitch' }, { name: 'backup-player', content: 'gg' }]
+		each nyanMeta in [{ name: 'players-path', content: `${PATHS.players}` }, { name: 'default-player', content: 'twitch-aw' }]
 			meta(name=`_nyan:${nyanMeta.name}` content=`${nyanMeta.content}`)
 
 		each CSS in [{ file: `dialog-polyfill/${LIBS.css.dialog_polyfill.v}/dialog-polyfill.min`, sri: LIBS.css.dialog_polyfill.sri }, { file: `fork-awesome/${LIBS.css.fa.v}/css/fork-awesome.min`, sri: LIBS.css.fa.sri }]
@@ -41,6 +40,9 @@ html(lang='ru')
 					li
 						button.menu__elem(data-lang-title='moon_trigger' data-action='moonTrigger')
 							i.fa(aria-hidden='true')
+					li
+						a.menu__elem(href=`${URLs.links.donate}` style='padding-top: 1px' target='_blank' rel='nofollow noopener' data-lang-title='donate')
+							i.fa.fa-rub(aria-hidden='true')
 
 				+headerBrand
 

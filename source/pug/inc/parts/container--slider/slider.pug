@@ -3,15 +3,15 @@ div.container.container--slider
 		ul.menu
 			li
 				a.menu__elem(href=`${URLs.links_soc.vk}` target='_blank' rel='nofollow noopener' data-lang-title='com_vk')
-					i.fa.fa-vk
+					i.fa.fa-vk(aria-hidden='true')
 
 			li
 				a.menu__elem(href=`${URLs.links_soc.tg}` target='_blank' rel='nofollow noopener' data-lang-title='com_tg')
-					i.fa.fa-telegram
+					i.fa.fa-telegram(aria-hidden='true')
 
 			li
 				a.menu__elem(href=`${URLs.links_soc.discord}` target='_blank' rel='nofollow noopener' data-lang-title='com_discord')
-					i.fa.fa-discord-alt
+					i.fa.fa-discord-alt(aria-hidden='true')
 
 	div.slider-content
 		nav.nav
@@ -44,3 +44,5 @@ div.container.container--slider
 				p #[span(data-lang='made_with') сделано с] #[span.copy__heart &#9829;]
 
 				p(style='margin-top: 5px') #[a(href='/about' style='text-transform: lowercase' data-style='no-border no-default-hover' data-lang='about_project')]
+
+				p(style='margin-top: 15px') #[a(href='https://donate.fbk.info/?utm_source=nyan.stream' style='text-transform: uppercase' data-style='no-border no-default-hover' target="_blank" rel="nofollow noopener") Я/МЫ субтитры]
