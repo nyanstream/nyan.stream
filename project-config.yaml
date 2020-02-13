@@ -18,6 +18,8 @@ trackers:
   yandex: 47766679
 
 URLs:
+  CDN: 'https://nyan-cdn.blyat.science'
+
   chat: https://thenyan.chatovod.ru
 
   links:

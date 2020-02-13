@@ -8,7 +8,7 @@ html(lang='ru')
 
 		link(rel='canonical' href=`${URLs.self}`)
 
-		each URL in ['nyan-api.blyat.science', 'fonts.gstatic.com']
+		each URL in ['nyan-cdn.blyat.science', 'nyan-api.blyat.science', 'fonts.gstatic.com']
 			link(rel='preconnect' href=`//${URL}`)
 
 		each URL in ['aw-cdn.blyat.science', 'www.google-analytics.com', 'ssl.google-analytics.com', 'mc.yandex.ru', 'counter.yadro.ru', 'images.weserv.nl', 'st1.chatovod.ru']
@@ -18,13 +18,13 @@ html(lang='ru')
 			meta(name=`${verif.type}` content=`${verif.code}`)
 
 		//- { name: 'default-player', content: 'gg' } - смена загружаемого по умолчанию плеера
-		each nyanMeta in [{ name: 'players-path', content: `${PATHS.players}` }, { name: 'default-player', content: 'twitch-aw' }]
+		each nyanMeta in [{ name: 'players-path', content: `${PATHS.players}` }, { name: 'default-player', content: 'twitch' }]
 			meta(name=`_nyan:${nyanMeta.name}` content=`${nyanMeta.content}`)
 
 		each CSS in [{ file: `dialog-polyfill/${LIBS.css.dialog_polyfill.v}/dialog-polyfill.min`, sri: LIBS.css.dialog_polyfill.sri }, { file: `fork-awesome/${LIBS.css.fa.v}/css/fork-awesome.min`, sri: LIBS.css.fa.sri }]
 			link(rel='stylesheet' href=`https://cdnjs.cloudflare.com/ajax/libs/${CSS.file}.css` integrity=`${CSS.sri}` crossorigin='anonymous')
 
-		each CSS in ['nyan-every', 'nyan-main', 'special/ny-2019']
+		each CSS in ['nyan-every', 'nyan-main']
 			link(rel='stylesheet' href=`${PATHS.css}/${CSS}.min.css?v=${VERSION}`)
 
 		style.user-styles

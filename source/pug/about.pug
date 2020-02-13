@@ -10,7 +10,7 @@ html(lang='ru')
 
 		link(rel='canonical' href=`${URLs.self}${subPage.link}`)
 
-		each URL in ['fonts.gstatic.com']
+		each URL in ['nyan-cdn.blyat.science', 'fonts.gstatic.com']
 			link(rel='preconnect' href=`//${URL}`)
 
 		each URL in ['www.google-analytics.com', 'mc.yandex.ru']
@@ -19,7 +19,7 @@ html(lang='ru')
 		each CSS in [{ file: `fork-awesome/${LIBS.css.fa.v}/css/fork-awesome.min.css`, sri: LIBS.css.fa.sri }]
 			link(rel='stylesheet' href=`https://cdnjs.cloudflare.com/ajax/libs/${CSS.file}` integrity=`${CSS.sri}` crossorigin='anonymous')
 
-		each CSS in ['nyan-every', 'nyan-pages', 'special/ny-2019']
+		each CSS in ['nyan-every', 'nyan-pages']
 			link(rel='stylesheet' href=`${PATHS.css}/${CSS}.min.css?v=${VERSION}`)
 
 		//- include inc/special-script.pug

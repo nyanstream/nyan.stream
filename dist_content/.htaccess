@@ -37,12 +37,12 @@ Header set Strict-Transport-Security 'max-age=31536000; includeSubDomains; prelo
 Header set Content-Security-Policy "default-src 'self'; \
  child-src 'self' https://chatovod.ru https://thenyan.chatovod.ru https://www.youtube-nocookie.com https://player.twitch.tv https://mixer.com https://goodgame.ru; \
  frame-ancestors 'self'; \
- style-src 'self' 'unsafe-inline' data: https://cdnjs.cloudflare.com https://fonts.googleapis.com; \
- font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; \
- img-src 'self' data: https://aw-cdn.blyat.science https://www.google-analytics.com https://mc.yandex.ru https://images.weserv.nl; \
+ style-src 'self' 'unsafe-inline' data: https://nyan-cdn.blyat.science https://cdnjs.cloudflare.com https://fonts.googleapis.com; \
+ script-src 'self' 'unsafe-inline' https://nyan-cdn.blyat.science https://cdnjs.cloudflare.com https://www.google-analytics.com https://www.googletagmanager.com https://mc.yandex.ru; \
+ img-src 'self' data: https://nyan-cdn.blyat.science https://aw-cdn.blyat.science https://www.google-analytics.com https://mc.yandex.ru https://images.weserv.nl; \
  media-src 'self' blob: https://nyan-video.blyat.science; \
- connect-src 'self' https://nyan-api.blyat.science https://r-a-d.io https://mc.yandex.ru; \
- script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://mc.yandex.ru https://cdnjs.cloudflare.com"
+ font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; \
+ connect-src 'self' https://nyan-api.blyat.science https://r-a-d.io https://mc.yandex.ru"
 </IfModule>
 
 <FilesMatch 'service-worker.min.js'>

@@ -3,8 +3,6 @@
 
 @include reset;
 
-$primeColor: #ad2929;
-
 :root {
 	--prime-color-10d: #{darken($primeColor, 10%)};
 	--prime-color-5d: #{darken($primeColor, 5%)};

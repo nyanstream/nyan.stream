@@ -87,6 +87,8 @@ gulp.task('liveReload', () => liveServer({
 
 /* Сборка pug */
 
+const CDN_DOMAIN = config.URLs.CDN
+
 let pugTubes = [
 	plumber(),
 	pug({ locals: {
@@ -99,10 +101,10 @@ let pugTubes = [
 		primeColor:  config.prime_color,
 
 		PATHS: {
-			js:       `/${dirs.assets}/js`,
-			css:      `/${dirs.assets}/css`,
-			img:      `/${dirs.assets}/img`,
-			other:    `/${dirs.assets}/other`,
+			js:       `${CDN_DOMAIN}/${dirs.assets}/js`,
+			css:      `${CDN_DOMAIN}/${dirs.assets}/css`,
+			img:      `${CDN_DOMAIN}/${dirs.assets}/img`,
+			other:    `${CDN_DOMAIN}/${dirs.assets}/other`,
 			players:  `/players`,
 		},
 
@@ -113,9 +115,9 @@ let pugTubes = [
 			yandex: config.trackers.yandex
 		},
 
-		URLs:        config.URLs,
+		URLs: config.URLs,
 
-		PLAYERS:     config.PLAYERS,
+		PLAYERS: config.PLAYERS,
 	}}),
 	bom(),
 	rename(file => {
@@ -148,7 +150,7 @@ let manifestTubes = [
 	plumber(),
 	transformJSON((data, file) => {
 		data.icons.forEach(icon => {
-			icon.src = `/${dirs.assets}/img/${icon.src}?v=${project.version}`
+			icon.src = `${CDN_DOMAIN}/${dirs.assets}/img/${icon.src}?v=${project.version}`
 		})
 
 		data.name =        config.title
