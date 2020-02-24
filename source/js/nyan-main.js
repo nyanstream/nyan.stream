@@ -90,7 +90,7 @@ let $init = {
 
 		let playerURL = ''
 
-		playerEmbed.textContent = ''
+		playerEmbed.innerText = ''
 
 		if (playerName == true) {
 			playerName = STRINGS.defaultPlayerName
@@ -148,9 +148,7 @@ let $loadInfo = {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-	let
-		body = document.body,
-		head = document.head
+	let body = document.body, head = document.head
 
 	let mainContainer = getContainer('main')
 
@@ -165,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (userCSS == '' || userCSS == null) {
 			$storage.rm(STRINGS.customCSS)
 
-			if (userStyleElem) { userStyleElem.textContent = '' }
+			if (userStyleElem) { userStyleElem.innerText = '' }
 
 			return
 		}
@@ -181,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			$storage.get(STRINGS.customCSS) &&
 			userStyleElem
 		){
-			userStyleElem.textContent = userCSS
+			userStyleElem.innerText = userCSS
 		}
 	}
 

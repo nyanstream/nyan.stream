@@ -1,6 +1,5 @@
 .header {
-	--headerHeight: 40px;
-	--headerBrandHeight: 20px;
+	--headerBrandHeight: calc(var(--headerHeight) / 2);
 
 	@include flexbox(auto, center, center, auto);
 	position: relative;

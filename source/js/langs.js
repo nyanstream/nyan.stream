@@ -361,7 +361,7 @@ let l10n = () => {
 					string = `${_flag} ${string}`
 				}
 
-				elem.textContent = string
+				elem.innerText = string
 			} else { l10nErr(elem.dataset.lang) }
 		})
 	})()

@@ -18,8 +18,8 @@ let setIntervalAndExecute = (fnc, time) => {
 let $embed = {
 	time: elem => {
 		let time = moment().format('HH:mm')
-		if (elem.textContent != time) {
-			elem.textContent = time
+		if (elem.innerText != time) {
+			elem.innerText = time
 		}
 	},
 	title: elem => {
@@ -45,7 +45,7 @@ let $embed = {
 					if (sessionStorage.getItem(titleStorageItemName) != elem.dataset.currentAir) {
 						//elem.classList.toggle('changed')
 
-						elem.textContent = `${sessionStorage.getItem(titleStorageItemName)}`
+						elem.innerText = `${sessionStorage.getItem(titleStorageItemName)}`
 						elem.dataset.currentAir = sessionStorage.getItem(titleStorageItemName)
 					}
 

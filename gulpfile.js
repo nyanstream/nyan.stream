@@ -26,6 +26,7 @@ let
 /*  Подключение сторонних модулей к проекту */
 
 let
+	CLIargs =       require('yargs').argv,
 	parseYAML =		require('js-yaml'),
 	liveServer =	require('browser-sync')
 
@@ -53,6 +54,10 @@ let config = parseYAMLfile('project-config')
 let vendors = parseYAMLfile('project-vendors')
 
 let dirs = config.dirs
+
+const IS_PROD = 'prod' in CLIargs
+
+const ASSETS_HOST = IS_PROD ? config.URLs.CDN : ''
 
 let paths = {
 	html: {
@@ -87,24 +92,27 @@ gulp.task('liveReload', () => liveServer({
 
 /* Сборка pug */
 
-const CDN_DOMAIN = config.URLs.CDN
-
 let pugTubes = [
 	plumber(),
 	pug({ locals: {
 		VERSION:     project.version,
 
-		title:       config.title,
+		meta: {
+			title:        config.title,
+			title_alt:    config.title_alt,
+			description:  config.description,
+			email:        config.email,
+		},
 
 		domain:      config.domain,
 
 		primeColor:  config.prime_color,
 
 		PATHS: {
-			js:       `${CDN_DOMAIN}/${dirs.assets}/js`,
-			css:      `${CDN_DOMAIN}/${dirs.assets}/css`,
-			img:      `${CDN_DOMAIN}/${dirs.assets}/img`,
-			other:    `${CDN_DOMAIN}/${dirs.assets}/other`,
+			js:       `${ASSETS_HOST}/${dirs.assets}/js`,
+			css:      `${ASSETS_HOST}/${dirs.assets}/css`,
+			img:      `${ASSETS_HOST}/${dirs.assets}/img`,
+			other:    `${ASSETS_HOST}/${dirs.assets}/other`,
 			players:  `/players`,
 		},
 
@@ -114,6 +122,8 @@ let pugTubes = [
 			google: config.trackers.google,
 			yandex: config.trackers.yandex
 		},
+
+		IS_PROD: IS_PROD,
 
 		URLs: config.URLs,
 
@@ -150,7 +160,7 @@ let manifestTubes = [
 	plumber(),
 	transformJSON((data, file) => {
 		data.icons.forEach(icon => {
-			icon.src = `${CDN_DOMAIN}/${dirs.assets}/img/${icon.src}?v=${project.version}`
+			icon.src = `${ASSETS_HOST}/${dirs.assets}/img/${icon.src}?v=${project.version}`
 		})
 
 		data.name =        config.title
@@ -219,9 +229,9 @@ let scssTubes = [
 
 		primeColor:  config.prime_color,
 
-		imgPath:     `/${dirs.assets}/img`,
+		imgPath:     `${ASSETS_HOST}/${dirs.assets}/img`,
 
-		otherPath:   `/${dirs.assets}/other`,
+		otherPath:   `${ASSETS_HOST}/${dirs.assets}/other`,
 	}, { verbose: false }),
 	sass.compile({ outputStyle: 'compressed' }),
 	cleanCSS(),

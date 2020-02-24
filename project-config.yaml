@@ -4,6 +4,10 @@ title_alt: Нянстрим
 
 domain: nyan.stream
 
+description: Небольшое сообщество людей, которые иногда собираются вместе и смотрят различные мультимедиа
+
+email: nyan@cojam.ru
+
 prime_color: '#4d539c'
 
 dirs:
@@ -18,7 +22,7 @@ trackers:
   yandex: 47766679
 
 URLs:
-  CDN: 'https://nyan-cdn.blyat.science'
+  CDN: https://cdn.blyat.science/nyan
 
   chat: https://thenyan.chatovod.ru
 
@@ -39,11 +43,6 @@ URLs:
     ag: https://ag.ru/@nya/games
 
 PLAYERS:
-  stream:
-    server: nyan-video.blyat.science
-    dash: 'live/stream/index.mpd'
-    hls: 'live/stream/index.m3u8'
-
   # e.g. player.twitch.tv/?channel=%player%
   twitch:
     main: zdesneanime

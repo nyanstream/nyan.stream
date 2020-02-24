@@ -118,7 +118,7 @@ let $parser = {
 
 			let itemStartTime = item.s, itemDuration = item.d
 
-			if (!('e' in item)) { item['e'] = itemStartTime + itemDuration }
+			if (!('e' in item)) { item.e = itemStartTime + itemDuration }
 
 			let itemEndTime = item.e
 
@@ -139,7 +139,7 @@ let $parser = {
 				itemStatus = 'current'
 			} else if (
 				itemStartTime > unixNow &&
-				itemStartTime == nextAirs[0]['s']
+				itemStartTime == nextAirs[0].s
 			) { // если (таймштамп времени начала item больше, чем текущий Unix-таймштамп) И если (таймштамп времени начала item равен времени начала первого item из массива будущих эфиров)
 				itemStatus = 'next'
 			} else if (
@@ -302,28 +302,28 @@ let $parser = {
 
 		let vkNewsContent = $create.elem('div')
 
-		data['posts'].forEach(post => {
-			if (post['pin'] == 1) { return }
+		data.posts.forEach(post => {
+			if (post.pin == 1) { return }
 
 			let postImgLink = ''
 
-			let postImg = post['pic']
+			let postImg = post.pic
 
 			if (postImg) {
 				let	postImgElem = $create.elem('img')
 
-				postImgElem.setAttribute('src', postImg['small'])
+				postImgElem.setAttribute('src', postImg.small)
 				postImgElem.setAttribute('alt', '')
 
-				postImgLink = $create.link(postImg['big']
-					? postImg['big']
-					: postImg['small'])
+				postImgLink = $create.link(postImg.big
+					? postImg.big
+					: postImg.small)
 
 				postImgLink.classList.add('vk-post-img-link')
 				postImgLink.appendChild(postImgElem)
 			}
 
-			let text = post['text'].replace(/\n/g, '<br>')
+			let text = post.text.replace(/\n/g, '<br>')
 
 			// https://git.io/fxvBn
 			let vkLinksRegExp = /\[((?:id|club)\d+)\|([^\]]+)\]/
@@ -350,15 +350,15 @@ let $parser = {
 			}
 
 			let vkPostMetaLink = $create.link(
-				`https://${DOMAINS.vk}/wall-${data['com']['id']}_${post['id']}`,
-				moment.unix(post['time']).format('LLL'),
+				`https://${DOMAINS.vk}/wall-${data.com.id}_${post.id}`,
+				moment.unix(post.time).format('LLL'),
 				'',
 				['e', 'html']
 			)
 
 			let isCopy = ''
 
-			if (post['type'] == 'copy') {
+			if (post.type == 'copy') {
 				isCopy = ' is-repost'
 				vkPostMetaLink += ` <span title="${getString('vk_repost')}">\u2935</span>`
 			}

@@ -4,16 +4,11 @@ js:
   moment:
     v:
       same: 2.24.0
-      timezone: 0.5.27
+      timezone: 0.5.28
     sri:
       same: sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ= # moment.min.js
       locale: sha256-qR4pdhxtx7dwKGJuYGoYjfnCQBPXv47hzLLU8jPLVUY= # ru.js
-      timezone: sha256-ltodGpbck6Njvgsa9pG7Xnr0xkVF57ctgfAS+LOeZt4= # moment-timezone-with-data.min.js
-
-  # cdnjs.com/libraries/video.js (video.min.js)
-  videojs:
-    v: 7.7.1
-    sri: sha256-5zmpa1xkozKlQAZ4eb64weO/UZdcNA6tdOOnmnodKko=
+      timezone: sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww= # moment-timezone-with-data.min.js
 
   # cdnjs.com/libraries/ismobilejs (isMobile.min.js)
   isMobile:
@@ -40,11 +35,6 @@ css:
   fa:
     v: 1.1.7 # обновлять только если понадобятся новые иконки
     sri: sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=
-
-  # cdnjs.com/libraries/video.js (video-js.min.css)
-  videojs:
-    v: 7.7.1
-    sri: sha256-kflKPH4F0cGv0BJg6I6+pb5nIO01FMeoK7qWoz1NayE=
 
   # cdnjs.com/libraries/dialog-polyfill (dialog-polyfill.min.css)
   dialog_polyfill:

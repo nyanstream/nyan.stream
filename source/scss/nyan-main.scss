@@ -20,8 +20,10 @@ body {
 
 .container {
 	&--main {
+		--headerHeight: 40px;
+
 		display: grid;
-		grid-template-rows: 40px 1fr;
+		grid-template-rows: var(--headerHeight) 1fr;
 		grid-template-columns: 1fr;
 		overflow-y: hidden;
 

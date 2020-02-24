@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			Array.from(locSearchParams.keys())
 				.forEach(key => {
 					if (key.startsWith('utm_')) {
-						modifyLocSearchParam({ param: key, remove: true})
+						modifyLocSearchParam({ param: key, remove: true })
 					}
 				})
 		}, 5000)

@@ -28,7 +28,7 @@ let clientTests = ({ nodes = { container, errorBox } }) => {
 		noscriptElems.forEach(elem => elem.remove())
 	}
 
-	errorBox.textContent = ''
+	errorBox.innerText = ''
 
 	if (!$storage.test()) {
 		mainContainer.dataset.error = 'no-ls'

@@ -8,13 +8,8 @@ let dataContainer = $make.qs('.data')
 
 let $embed = {
 	sched: () => doFetch({ fetchURL: API.schedule, handler: ({ data = [] }) => {
-		let
-			dayToday =      moment().format('DDD YY'),
-			dayTodayFull =  moment().format('D MMMM (dddd)')
-
-		let
-			unixNow =       moment().unix(),
-			hourHow =       moment().format('HH')
+		let dayToday =      moment().format('DDD YY')
+		let dayTodayFull =  moment().format('D MMMM (dddd)')
 
 		let cutToHour = false
 
@@ -30,21 +25,24 @@ let $embed = {
 		}
 
 		data.forEach(item => {
-			let
-				timeS = moment.unix(item['s']),
-				timeE = moment.unix(item['s'] + item['d']).
+			let itemStartTime =  moment.unix(item.s)
+			let itemEndTime =    moment.unix(item.s + item.d)
 
-			let
-				dayOfS = timeS.format('DDD YY'),
-				hourOfS = timeS.format('HH')
+			let itemStartTimeDay =   itemStartTime.format('DDD YY')
+			let itemStartTimeHour =  itemStartTime.format('HH')
 
-			if (dayOfS == dayToday) {
-				if (cutToHour && cutToHour > hourOfS) { return }
+			if (itemStartTimeDay == dayToday) {
+				if (
+					cutToHour &&
+					cutToHour > itemStartTimeHour
+				) { return }
 
 				dataContainer.appendChild(
 					$create.elem(
 						'p',
-						`<span class="sched--time">${timeS.format('HH:mm')} &ndash; ${timeE.format('HH:mm')}:</span> <span class="sched--title">${item['title']}</span>`
+							`<span class="sched--time">${itemStartTime.format('HH:mm')}` +
+							`&ndash; ${itemEndTime.format('HH:mm')}:</span>` +
+							`<span class="sched--title">${item.title}</span>`
 					)
 				)
 			}
@@ -52,11 +50,13 @@ let $embed = {
 	}}),
 
 	schedNext: () => doFetch({ fetchURL: API.schedule, handler: ({ data = [] }) => {
-		let nextAirs = data.filter((e) => e['s'] > moment().unix())
+		let nextAirs = data.filter(e => e.s > moment().unix())
 
 		if (nextAirs.length == 0) { return }
 
-		dataContainer.innerHTML = `Далее будет:<br>${moment.unix(nextAirs[0]['s']).format('HH:mm')} &ndash; ${nextAirs[0]['title']}`
+		dataContainer.innerHTML =
+			`Далее будет:<br>${moment.unix(nextAirs[0].s).format('HH:mm')}` +
+			`&ndash; ${nextAirs[0].title}`
 	}}),
 
 	song: () => doFetch({ fetchURL: `https://${DOMAINS.radio}/api`, handler: ({ data = {} }) => {
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			setInterval(() => { $embed.song() }, updTime)
 			break
 		case 'time':
-			setInterval(() => { $embed.time() }, 100)
+			setInterval(() => { $embed.time() }, 250)
 			break
 	}
 })
