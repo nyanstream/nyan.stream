@@ -6,6 +6,8 @@
 	--prime-color-10d:  #{darken($primeColor, 10%)};
 
 	--font-size: 14px;
+
+	--headerHeight: 40px;
 }
 
 @include selection(var(--prime-color-5d), #fff);
