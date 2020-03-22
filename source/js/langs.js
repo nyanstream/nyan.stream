@@ -14,9 +14,8 @@
  * TODO: найти время и сгруппировать всё
  */
 
-let getString = s => {
+const getString = s => {
 	let trStrings = {
-
 		about_project: {
 			ru: 'О проекте',
 			en: 'About us',
@@ -222,6 +221,10 @@ let getString = s => {
 			ru: 'Профиль на AG',
 			en: 'AG.ru profile'
 		},
+		link_github: {
+			ru: 'Профиль на GitHub',
+			en: 'GitHub profile',
+		},
 
 		made_with: {
 			ru: 'сделано с',
@@ -304,7 +307,7 @@ let getString = s => {
 		}
 	}
 
-	let userLang = $storage.test()
+	const userLang = $storage.test()
 		? $storage.get(STRINGS.l10n)
 		: 'ru'
 
@@ -323,15 +326,15 @@ let getString = s => {
 	return string
 }
 
-let l10n = () => {
+const l10n = () => {
 	/*
 	 * Первая буква в строке становится заглавной
 	 * credits: https://stackoverflow.com/a/1026087
 	 */
 
-	let capitalize = s => s.charAt(0).toUpperCase() + s.slice(1)
+	const capitalize = s => s.charAt(0).toUpperCase() + s.slice(1)
 
-	let l10nErr = s => console.warn(`Ошибка: cтрока "${s}" не переведена или неправильно используется`)
+	const l10nErr = s => console.warn(`Ошибка: cтрока "${s}" не переведена или неправильно используется`)
 
 	/*
 	 * Поиск HTML-элементов для локализации
@@ -340,7 +343,7 @@ let l10n = () => {
 	 */
 
 	void (() => {
-		let elems = $make.qs('[data-lang]', ['a'])
+		const elems = $make.qs('[data-lang]', ['a'])
 
 		elems.forEach(elem => {
 			let string = getString(elem.dataset.lang)
@@ -372,18 +375,18 @@ let l10n = () => {
 	 * Элементы должны иметь аттрибут "data-lang-SOME" с нужным значением из переменной trStrings
 	 */
 
-	let l10nForAttrs = (arr = []) => {
+	const l10nForAttrs = (arr = []) => {
 		arr.forEach(arrItem => {
 			let dataAttr = arrItem[0]
 
 			let attr = arrItem[1]
 
-			let elems = $make.qs(`[data-lang-${dataAttr}]`, ['a'])
+			const elems = $make.qs(`[data-lang-${dataAttr}]`, ['a'])
 
 			elems.forEach(elem => {
-				let
-					elemData = `lang${capitalize(dataAttr)}`,
-					string = getString(elem.dataset[elemData])
+				let elemData = `lang${capitalize(dataAttr)}`
+
+				let	string = getString(elem.dataset[elemData])
 
 				if (string && string != '' && typeof string != 'function') {
 					elem.setAttribute(attr, string)
@@ -407,9 +410,13 @@ let l10n = () => {
 			'locales' in moment &&
 			$storage.test()
 		) {
-			let momentLocales = moment.locales()
+			const momentLocales = moment.locales()
 
-			if (momentLocales.includes('ru') && momentLocales.includes('en')) {
+			if (
+				momentLocales.includes('ru') ||
+				momentLocales.includes('en') ||
+				momentLocales.includes('ja')
+			) {
 				moment.locale($storage.get(STRINGS.l10n))
 			}
 		}

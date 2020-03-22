@@ -36,6 +36,7 @@ URLs:
     vk: https://vk.com/thenyan
     tg: https://tlg.name/thenyan
     discord: https://discord.gg/96cq8w8
+    github: https://github.com/nyanstream
 
   links_stat:
     shiki: https://shikimori.one/nyan/list/anime/order-by/name
@@ -46,6 +47,7 @@ PLAYERS:
   # e.g. player.twitch.tv/?channel=%player%
   twitch:
     main: zdesneanime
+    aw: asianwave
 
   # e.g. mixer.com/embed/player/%player%
   mixer: nyanstream

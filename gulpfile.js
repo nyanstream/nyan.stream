@@ -1,65 +1,64 @@
 'use strict'
 
-let project = require('./package.json')
+const project = require('./package.json')
 
 /* Подключение встроенных модулей к проекту */
 
-let fs = require('fs'), path = require('path')
+const fs = require('fs')
+const path = require('path')
 
 /* Подключение Gulp к проекту */
 
-let gulp = require('gulp')
+const gulp = require('gulp')
 
 /* Подключение сторонних плагинов Gulp к проекту */
 
-let
-	tube =			require('gulp-pipe'),
-	bom =			require('gulp-bom'),
-	rename =		require('gulp-rename'),
-	watch =			require('gulp-watch'),
-	clean =			require('gulp-clean'),
-	plumber =		require('gulp-plumber'),
-	cleanCSS =		require('gulp-clean-css'),
-	pug =			require('gulp-pug'),
-	transformJSON =	require('gulp-json-transform')
+const tube = require('gulp-pipe')
+const bom = require('gulp-bom')
+const rename = require('gulp-rename')
+const watch = require('gulp-watch')
+const clean = require('gulp-clean')
+const plumber =	require('gulp-plumber')
+const cleanCSS = require('gulp-clean-css')
+const pug =	require('gulp-pug')
+const transformJSON = require('gulp-json-transform')
 
 /*  Подключение сторонних модулей к проекту */
 
-let
-	CLIargs =       require('yargs').argv,
-	parseYAML =		require('js-yaml'),
-	liveServer =	require('browser-sync')
+const CLIargs = require('yargs').argv
+const parseYAML = require('js-yaml')
+const liveServer = require('browser-sync')
 
-let sass = {
+const sass = {
 	compile:  require('gulp-sass'),
 	watch:    require('gulp-watch-sass'),
 	vars:     require('gulp-sass-vars')
 }
 
-let uglify = {
+const uglify = {
 	core:      require('terser'),
 	composer:  require('gulp-uglify/composer')
 }
 
-let
-	minifyJS = uglify.composer(uglify.core, console),
-	reloadServer = () => liveServer.stream()
+const minifyJS = uglify.composer(uglify.core, console)
 
-let parseYAMLfile = fileName => parseYAML.load(fs.readFileSync(`./${fileName}.yaml`, 'utf8'))
+const reloadServer = () => liveServer.stream()
 
-let getPackageDir = packageName => path.dirname(require.resolve(`${packageName}/package.json`))
+const parseYAMLfile = fileName => parseYAML.load(fs.readFileSync(`./${fileName}.yaml`, 'utf8'))
 
-let config = parseYAMLfile('project-config')
+const getPackageDir = packageName => path.dirname(require.resolve(`${packageName}/package.json`))
 
-let vendors = parseYAMLfile('project-vendors')
+const config = parseYAMLfile('project-config')
 
-let dirs = config.dirs
+const vendors = parseYAMLfile('project-vendors')
+
+const dirs = config.dirs
 
 const IS_PROD = 'prod' in CLIargs
 
 const ASSETS_HOST = IS_PROD ? config.URLs.CDN : ''
 
-let paths = {
+const paths = {
 	html: {
 		dev: [`${dirs.dev}/pug/**/*.pug`, `!${dirs.dev}/pug/inc/**/*.pug`],
 		prod: `${dirs.build}/`,
@@ -92,7 +91,7 @@ gulp.task('liveReload', () => liveServer({
 
 /* Сборка pug */
 
-let pugTubes = [
+const pugTubes = [
 	plumber(),
 	pug({ locals: {
 		VERSION:     project.version,
@@ -156,7 +155,7 @@ gulp.task('pug:dev', () => tube(
 
 /* Сборка вебманифеста */
 
-let manifestTubes = [
+const manifestTubes = [
 	plumber(),
 	transformJSON((data, file) => {
 		data.icons.forEach(icon => {
@@ -186,7 +185,7 @@ gulp.task('webmanifest:dev', () => tube(
 
 /* Сборка JS */
 
-let jsTubes = (dest = paths.js.prod) => [
+const jsTubes = (dest = paths.js.prod) => [
 	plumber(),
 	minifyJS({}),
 	bom(),
@@ -222,7 +221,7 @@ gulp.task('js:get-vendors', () => tube([
 
 /* Сборка SCSS */
 
-let scssTubes = [
+const scssTubes = [
 	plumber(),
 	sass.vars({
 		VERSION:     project.version,

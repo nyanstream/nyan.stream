@@ -38,20 +38,21 @@ html(lang='ru')
 					include inc/parts/container--slider/slider__btn.pug
 
 					li
-						button.menu__elem(data-lang-title='moon_trigger' data-action='moonTrigger')
-							i.fa(aria-hidden='true')
-					li
 						a.menu__elem(href=`${URLs.links.donate}` style='padding-top: 1px' target='_blank' rel='nofollow noopener' data-lang-title='donate')
 							i.fa.fa-rub(aria-hidden='true')
+					li
+						a.menu__elem(href=`${URLs.links_soc.github}` style='padding-top: 1px' target='_blank' rel='nofollow noopener' data-lang-title='link_github')
+							i.fa.fa-github(aria-hidden='true')
 
 				+headerBrand
 
 				ul.menu.menu--right
-
+					li
+						button.menu__elem(data-lang-title='moon_trigger' data-action='moonTrigger')
+							i.fa(aria-hidden='true')
 					li
 						button.menu__elem(data-lang-title='options_trigger' data-action='optionsTrigger')
 							i.fa.fa-cog(aria-hidden='true')
-
 					li
 						button.menu__elem(data-lang-title='sidebar_trigger' data-action='sidebarTrigger')
 							i.fa(aria-hidden='true')
