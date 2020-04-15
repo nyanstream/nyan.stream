@@ -99,6 +99,7 @@ let $init = {
 		switch (playerName) {
 			case 'main':
 			case 'twitch':
+			case 'twitch-second':
 			case 'twitch-aw':
 			case 'gg':
 			case 'mixer':

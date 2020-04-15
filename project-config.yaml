@@ -46,7 +46,8 @@ URLs:
 PLAYERS:
   # e.g. player.twitch.tv/?channel=%player%
   twitch:
-    main: zdesneanime
+    main: nyan_stream
+    second: zdesneanime
     aw: asianwave
 
   # e.g. mixer.com/embed/player/%player%
