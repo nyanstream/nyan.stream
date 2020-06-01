@@ -3,12 +3,12 @@ js:
   # cdnjs.com/libraries/moment-timezone (moment-timezone-with-data.min.js)
   moment:
     v:
-      same: 2.24.0
-      timezone: 0.5.28
+      same: 2.26.0
+      timezone: 0.5.31
     sri:
-      same: sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ= # moment.min.js
-      locale: sha256-qR4pdhxtx7dwKGJuYGoYjfnCQBPXv47hzLLU8jPLVUY= # ru.js
-      timezone: sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww= # moment-timezone-with-data.min.js
+      same: sha256-5oApc/wMda1ntIEK4qoWJ4YItnV4fBHMwywunj8gPqc= # moment.min.js
+      locale: sha256-OYpFHfm/updRcba4M4rUYuGm7GS74pwp2Bqy7LzSiec= # ru.js
+      timezone: sha256-E10X63Z5YvTXDfZjb0Kqd7FOo6a/gE7hFGcYm63PLmM= # moment-timezone-with-data.min.js
 
   # cdnjs.com/libraries/ismobilejs (isMobile.min.js)
   isMobile:
