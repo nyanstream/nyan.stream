@@ -117,11 +117,6 @@ const pugTubes = [
 
 		LIBS: vendors,
 
-		BBISWU: {
-			google: config.trackers.google,
-			yandex: config.trackers.yandex
-		},
-
 		IS_PROD: IS_PROD,
 
 		URLs: config.URLs,

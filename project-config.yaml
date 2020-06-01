@@ -17,10 +17,6 @@ dirs:
   dist_content: dist_content
   assets: assets
 
-trackers:
-  google: UA-41033513-8
-  yandex: 47766679
-
 URLs:
   CDN: https://cdn.blyat.science/nyan
 
