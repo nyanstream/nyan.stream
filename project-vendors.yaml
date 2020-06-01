@@ -27,8 +27,8 @@ js:
 
   # cdnjs.com/libraries/dialog-polyfill (dialog-polyfill.min.js)
   dialog_polyfill:
-    v: 0.5.0
-    sri: sha256-zuWV5NPG/4LAjEtLJIe7ZyTHW7glLsCJcP2za9U7KEM=
+    v: 0.5.1
+    sri: sha256-B4Jb9j0PE2EzFJ6NaPkoJXDcQtQYR0Zd3DJKeYLifbg=
 
 css:
   # cdnjs.com/libraries/fork-awesome (fork-awesome.min.css)
@@ -38,5 +38,5 @@ css:
 
   # cdnjs.com/libraries/dialog-polyfill (dialog-polyfill.min.css)
   dialog_polyfill:
-    v: 0.5.0
+    v: 0.5.1
     sri: sha256-qVjBFbunjrWQ4IikV5dkK1ziW9XKskisX1rUbCIJEhk=
