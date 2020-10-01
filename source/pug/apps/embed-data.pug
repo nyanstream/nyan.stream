@@ -16,8 +16,8 @@ html(lang='ru')
 	body
 		div.data
 
-		each JS in [{ file: `moment.js/${LIBS.js.moment.v.same}/moment.min.js`, sri: LIBS.js.moment.sri.same }, { file: `moment.js/${LIBS.js.moment.v.same}/locale/ru.js`, sri: LIBS.js.moment.sri.locale }, { file: `moment-timezone/${LIBS.js.moment.v.timezone}/moment-timezone-with-data.min.js`, sri: LIBS.js.moment.sri.timezone }]
-			script(src=`https://cdnjs.cloudflare.com/ajax/libs/${JS.file}` integrity=`${JS.sri}` crossorigin='anonymous' defer)
+		each JS in [{ file: `moment.js/${LIBS.js.moment.v.same}/moment.min`, sri: LIBS.js.moment.sri.same }, { file: `moment.js/${LIBS.js.moment.v.same}/locale/ru.min`, sri: LIBS.js.moment.sri.locale }, { file: `moment-timezone/${LIBS.js.moment.v.timezone}/moment-timezone-with-data.min`, sri: LIBS.js.moment.sri.timezone }]
+			script(src=`https://cdnjs.cloudflare.com/ajax/libs/${JS.file}.js` integrity=`${JS.sri}` crossorigin='anonymous' defer)
 
 		each JS in ['vendors/kamina', 'core', 'apps/embed-data']
 			script(src=`${PATHS.js}/${JS}.min.js?v=${VERSION}` defer)

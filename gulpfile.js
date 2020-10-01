@@ -35,12 +35,7 @@ const sass = {
 	vars:     require('gulp-sass-vars')
 }
 
-const uglify = {
-	core:      require('terser'),
-	composer:  require('gulp-uglify/composer')
-}
-
-const minifyJS = uglify.composer(uglify.core, console)
+const terser = require('gulp-terser')
 
 const reloadServer = () => liveServer.stream()
 
@@ -182,7 +177,7 @@ gulp.task('webmanifest:dev', () => tube(
 
 const jsTubes = (dest = paths.js.prod) => [
 	plumber(),
-	minifyJS({}),
+	terser(),
 	bom(),
 	rename({ suffix: '.min' }),
 	gulp.dest(dest)

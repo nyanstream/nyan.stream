@@ -16,6 +16,6 @@ html(lang='ru')
 		link(rel='stylesheet' href=`${PATHS.css}/players/iframe.min.css?v=${VERSION}`)
 
 	body
-		iframe.player(src=`https://player.twitch.tv/?channel=${PLAYERS.twitch.aw}&autoplay=true` sandbox='allow-same-origin allow-scripts allow-presentation' allowfullscreen)
+		iframe.player(src=`https://player.twitch.tv/?channel=${PLAYERS.twitch.aw}&parent=${domain}&autoplay=true` sandbox='allow-same-origin allow-scripts allow-presentation' allowfullscreen)
 
 		script(src=`${PATHS.js}/special/ifec.min.js?v=${VERSION}` defer)

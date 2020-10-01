@@ -3,11 +3,11 @@ js:
   # cdnjs.com/libraries/moment-timezone (moment-timezone-with-data.min.js)
   moment:
     v:
-      same: 2.26.0
+      same: 2.29.0
       timezone: 0.5.31
     sri:
-      same: sha256-5oApc/wMda1ntIEK4qoWJ4YItnV4fBHMwywunj8gPqc= # moment.min.js
-      locale: sha256-OYpFHfm/updRcba4M4rUYuGm7GS74pwp2Bqy7LzSiec= # ru.js
+      same: sha512-Izh34nqeeR7/nwthfeE0SI3c8uhFSnqxV0sI9TvTcXiFJkMd6fB644O64BRq2P/LA/+7eRvCw4GmLsXksyTHBg== # moment.min.js
+      locale: sha512-+yvkALwyeQtsLyR3mImw8ie79H9GcXkknm/babRovVSTe04osQxiohc1ukHkBCIKQ9y97TAf2+17MxkIimZOdw== # ru.min.js
       timezone: sha256-E10X63Z5YvTXDfZjb0Kqd7FOo6a/gE7hFGcYm63PLmM= # moment-timezone-with-data.min.js
 
   # cdnjs.com/libraries/ismobilejs (isMobile.min.js)
@@ -27,8 +27,8 @@ js:
 
   # cdnjs.com/libraries/dialog-polyfill (dialog-polyfill.min.js)
   dialog_polyfill:
-    v: 0.5.1
-    sri: sha256-B4Jb9j0PE2EzFJ6NaPkoJXDcQtQYR0Zd3DJKeYLifbg=
+    v: 0.5.3
+    sri: sha512-R0XY6KUjzjA20m0SG8JwI2yCPDUA0TrrWwytjLPKkkjhA/BEduXwdpm6DKHqsDxHrqtZIsE2GOnZQQK23oh97g==
 
 css:
   # cdnjs.com/libraries/fork-awesome (fork-awesome.min.css)
@@ -38,5 +38,5 @@ css:
 
   # cdnjs.com/libraries/dialog-polyfill (dialog-polyfill.min.css)
   dialog_polyfill:
-    v: 0.5.1
-    sri: sha256-qVjBFbunjrWQ4IikV5dkK1ziW9XKskisX1rUbCIJEhk=
+    v: 0.5.3
+    sri: sha512-J2+1q+RsZuJXabBfH1q/fgRr6jMy9By5SwVLk7bScEW7NFJkMUXxfeOyyxtDe6fsaJ4jsciexSlGrPYn9YbBIg==

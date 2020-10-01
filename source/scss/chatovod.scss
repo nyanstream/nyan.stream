@@ -8,6 +8,16 @@
 	--prime-color-5d: #{darken($primeColor, 5%)};
 
 	--scroll-color: #828282;
+
+	@media screen and (prefers-color-scheme: dark) {
+		$primeColorDark: #464646;
+
+		body {
+			--prime-color: #{$primeColorDark};
+			--prime-color-10d: #{darken($primeColorDark, 10%)};
+			--prime-color-5d: #{darken($primeColorDark, 5%)};
+		}
+	}
 }
 
 /*
@@ -17,6 +27,10 @@
 body {
 	.chat {
 		font-family: Roboto, Arial, sans-serif !important;
+
+		@media screen and (prefers-color-scheme: dark) {
+			color: #b1b1b1 !important;
+		}
 	}
 }
 
@@ -87,6 +101,10 @@ a[href*='?cat=vip'],
 	&PopupMenuDiv1,
 	&PopupMenuDiv2 {
 		background-color: #fff;
+
+		@media screen and (prefers-color-scheme: dark) {
+			background-color: var(--prime-color-5d);
+		}
 	}
 
 	&MenuItemWithSeparator {
@@ -111,6 +129,11 @@ a[href*='?cat=vip'],
 		}
 
 		font-weight: normal;
+
+		@media screen and (prefers-color-scheme: dark) {
+			background-color: var(--prime-color-5d);
+			border-top: 0;
+		}
 	}
 
 	&People {
@@ -158,6 +181,16 @@ a[href*='?cat=vip'],
 	&SoundPanel {
 		top: 10px !important;
 		right: 120px !important;
+
+		@media screen and (prefers-color-scheme: dark) {
+			a {
+				color: #d6d6d6;
+
+				span {
+					border-bottom: 0 !important;
+				}
+			}
+		}
 	}
 
 	&Send {
@@ -189,8 +222,18 @@ a[href*='?cat=vip'],
 			}
 
 			a.chatLinkSmiles {
-				background-image: url('#{$imgPath}/other/zephir.png?v=#{$VERSION}');
+				background-image: url('https://nyan.stream/assets/img/other/zephir.png?v=#{$VERSION}');
 				background-color: transparent;
+			}
+
+			@media screen and (prefers-color-scheme: dark) {
+				a {
+					color: #d6d6d6;
+
+					span {
+						border-bottom: 0 !important;
+					}
+				}
 			}
 		}
 	}
@@ -273,6 +316,10 @@ a[href*='?cat=vip'],
 	&People ul.chatPeopleList li a.chatUser,
 	&People ul.chatPeopleList li a.chatUser span[style] {
 		color: var(--prime-color-10d) !important;
+
+		@media screen and (prefers-color-scheme: dark) {
+			color: #c4c4c4 !important;
+		}
 	}
 
 	&Header {
@@ -317,6 +364,12 @@ a[href*='?cat=vip'],
 	}
 
 	&Full {
+		.transparent {
+			@media screen and (prefers-color-scheme: dark) {
+				background-color: #575757
+			}
+		}
+
 		a {
 			$textColor: #000;
 
@@ -330,6 +383,35 @@ a[href*='?cat=vip'],
 
 			&:hover {
 				background-color: rgba($textColor, .1);
+			}
+
+			@media screen and (prefers-color-scheme: dark) {
+				$textColorLight: #fff;
+
+				font-weight: normal;
+				color: $textColorLight;
+				border-bottom: 1px solid $textColorLight;
+
+				&:hover {
+					background-color: rgba($textColorLight, .1);
+				}
+			}
+		}
+
+		#new-nick-label, #existing-nick-label {
+			@media screen and (prefers-color-scheme: dark) {
+				color: #fff;
+			}
+		}
+	}
+
+	&Input {
+		&Text {
+			@media screen and (prefers-color-scheme: dark) {
+				background: none;
+				background-color: var(--prime-color-10d);
+				color: #e3e3e3;
+				padding: 0 2.5px;
 			}
 		}
 	}

@@ -39,8 +39,8 @@ $create.tabs = selector => {
 
 	tabsRadioBtns.forEach(btn => {
 		btn.addEventListener('click', e =>
-			!('tabActive' in e.target.dataset)
-				? $selectTab(e.target.dataset.tab)
+			!('tabActive' in e.currentTarget.dataset)
+				? $selectTab(e.currentTarget.dataset.tab)
 				: void(0)
 		)
 	})
@@ -254,6 +254,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if ($storage.get(storageItemName_old) == 'true') {
 			$storage.rm(storageItemName_old)
+			$storage.set(storageItemName, 'true')
+		}
+
+		const matchDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+		if ($storage.get(storageItemName) !== 'true' && matchDarkTheme) {
 			$storage.set(storageItemName, 'true')
 		}
 
