@@ -222,7 +222,7 @@ a[href*='?cat=vip'],
 			}
 
 			a.chatLinkSmiles {
-				background-image: url('https://nyan.stream/assets/img/other/zephir.png?v=#{$VERSION}');
+				background-image: url('#{$imgPath}/other/zephir.png?v=#{$VERSION}');
 				background-color: transparent;
 			}
 
