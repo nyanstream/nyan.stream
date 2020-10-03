@@ -9,6 +9,8 @@
 
 	--scroll-color: #828282;
 
+	--nickname-color: var(--prime-color-10d);
+
 	@media screen and (prefers-color-scheme: dark) {
 		$primeColorDark: #464646;
 
@@ -16,6 +18,10 @@
 			--prime-color: #{$primeColorDark};
 			--prime-color-10d: #{darken($primeColorDark, 10%)};
 			--prime-color-5d: #{darken($primeColorDark, 5%)};
+
+			@media screen and (prefers-color-scheme: dark) {
+				--nickname-color: #c4c4c4;
+			}
 		}
 	}
 }
@@ -268,7 +274,7 @@ a[href*='?cat=vip'],
 		}
 
 		.chatUserFrom span[style] {
-			color: var(--prime-color-10d) !important;
+			color: var(--nickname-color) !important;
 		}
 	}
 
@@ -301,6 +307,12 @@ a[href*='?cat=vip'],
 					&[class*='Photos'], &[class*='Gift'] {
 						display: none;
 					}
+
+					@media screen and (prefers-color-scheme: dark) {
+						& {
+							color: #d6d6d6;
+						}
+					}
 				}
 			}
 		}
@@ -315,11 +327,7 @@ a[href*='?cat=vip'],
 	&UserFrom,
 	&People ul.chatPeopleList li a.chatUser,
 	&People ul.chatPeopleList li a.chatUser span[style] {
-		color: var(--prime-color-10d) !important;
-
-		@media screen and (prefers-color-scheme: dark) {
-			color: #c4c4c4 !important;
-		}
+		color: var(--nickname-color) !important;
 	}
 
 	&Header {
@@ -398,7 +406,7 @@ a[href*='?cat=vip'],
 			}
 		}
 
-		#new-nick-label, #existing-nick-label {
+		#account-info, #new-nick-label, #existing-nick-label {
 			@media screen and (prefers-color-scheme: dark) {
 				color: #fff;
 			}
