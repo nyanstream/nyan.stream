@@ -2,7 +2,7 @@
 
 moment.tz.setDefault('Europe/Moscow')
 
-DOMAINS.radio = 'r-a-d.io'
+DOMAINS.radio = 'myradio24.com'
 
 let dataContainer = $make.qs('.data')
 
@@ -59,8 +59,8 @@ let $embed = {
 			`&ndash; ${nextAirs[0].title}`
 	}}),
 
-	song: () => doFetch({ fetchURL: `https://${DOMAINS.radio}/api`, handler: ({ data = {} }) => {
-		let song = data.main.np
+	song: () => doFetch({ fetchURL: `https://${DOMAINS.radio}/users/7934/status.json`, handler: ({ data = {} }) => {
+		let song = data.song
 		dataContainer.innerHTML = song.replace(' - ', ' &ndash; ')
 	}}),
 

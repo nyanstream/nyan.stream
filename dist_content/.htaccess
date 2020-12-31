@@ -42,7 +42,7 @@ Header set Content-Security-Policy "default-src 'self'; \
  img-src 'self' data: https://cdn.blyat.science https://aw-cdn.blyat.science https://www.google-analytics.com https://mc.yandex.ru https://images.weserv.nl; \
  media-src 'self' blob: https://nyan-video.blyat.science; \
  font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; \
- connect-src 'self' https://nyan-api.blyat.science https://r-a-d.io https://mc.yandex.ru"
+ connect-src 'self' https://nyan-api.blyat.science https://myradio24.com https://mc.yandex.ru"
 </IfModule>
 
 <FilesMatch 'service-worker.min.js'>
